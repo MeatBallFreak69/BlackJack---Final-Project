@@ -433,16 +433,6 @@ namespace BlackJack___Final_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap aces {
-            get {
-                object obj = ResourceManager.GetObject("aces", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap AD {
             get {
                 object obj = ResourceManager.GetObject("AD", resourceCulture);
@@ -486,36 +476,6 @@ namespace BlackJack___Final_Project.Properties {
         internal static System.Drawing.Bitmap Blackjack_values {
             get {
                 object obj = ResourceManager.GetObject("Blackjack-values", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blue_back {
-            get {
-                object obj = ResourceManager.GetObject("blue_back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gray_back {
-            get {
-                object obj = ResourceManager.GetObject("gray_back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap green_back {
-            get {
-                object obj = ResourceManager.GetObject("green_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,16 +573,6 @@ namespace BlackJack___Final_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap purple_back {
-            get {
-                object obj = ResourceManager.GetObject("purple_back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap QC {
             get {
                 object obj = ResourceManager.GetObject("QC", resourceCulture);
@@ -666,16 +616,6 @@ namespace BlackJack___Final_Project.Properties {
         internal static System.Drawing.Bitmap red_back {
             get {
                 object obj = ResourceManager.GetObject("red_back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap yellow_back {
-            get {
-                object obj = ResourceManager.GetObject("yellow_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

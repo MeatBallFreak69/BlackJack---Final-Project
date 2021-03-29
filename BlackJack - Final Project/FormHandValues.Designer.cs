@@ -51,6 +51,7 @@
             this.ClientSize = new System.Drawing.Size(609, 343);
             this.Controls.Add(this.btnClose);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHandValues";
             this.Text = "FormHandValues";

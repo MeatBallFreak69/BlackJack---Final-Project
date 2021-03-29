@@ -22,13 +22,18 @@ namespace BlackJack___Final_Project
 
         private void frmMainGame_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnTutorials_Click(object sender, EventArgs e)
         {
             frmTutorials formTutorials = new frmTutorials();
             formTutorials.ShowDialog();
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
