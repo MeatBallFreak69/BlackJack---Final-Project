@@ -59,6 +59,8 @@
             this.lblEnemyCardsValue = new System.Windows.Forms.Label();
             this.lblPlayerCardsValue = new System.Windows.Forms.Label();
             this.grpMenu = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
@@ -321,6 +323,23 @@
             this.grpMenu.TabStop = false;
             this.grpMenu.Text = "Menu";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(629, 207);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 251);
+            this.listBox1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(532, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "label1";
+            // 
             // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,6 +347,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.grpMenu);
             this.Controls.Add(this.lblPlayerCardsValue);
             this.Controls.Add(this.lblEnemyCardsValue);
@@ -402,6 +423,8 @@
         private System.Windows.Forms.Label lblEnemyCardsValue;
         private System.Windows.Forms.Label lblPlayerCardsValue;
         private System.Windows.Forms.GroupBox grpMenu;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

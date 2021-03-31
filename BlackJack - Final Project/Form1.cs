@@ -14,8 +14,7 @@ namespace BlackJack___Final_Project
     {
         int money;
         int betAmount = 0;
-
-        Random shuffle = new Random();
+        int turnCounter = 0;
 
         Bitmap deck = Properties.Resources.betterCards;
         List<Bitmap> cards = new List<Bitmap>();
@@ -41,8 +40,11 @@ namespace BlackJack___Final_Project
                 }
             }
 
-            //Shuffles Cards
-            shuffledCards = cards.OrderBy(a => Guid.NewGuid()).ToList();
+            for (int i = 0; i < cards.Count; i++)
+            {
+                shuffledCards.Add(cards[i]);
+            }
+           
 
             imgDealHand.Image = Properties.Resources.red_back;
             money = 100;
@@ -239,15 +241,36 @@ namespace BlackJack___Final_Project
 
         private void btnDeal_Click(object sender, EventArgs e)
         {
-            publicCards.Add(imgPlayerCardOne);
-            publicCards.Add(imgPlayerCardTwo);
-            publicCards.Add(imgEnemyCardTwo);
-            for (int i = 0; i <= publicCards.Count;)
+            turnCounter++;
+            if (turnCounter == 1)
             {
-                deltHands.Add(shuffledCards[shuffledCards.Count]);
-                shuffledCards.Remove(shuffledCards[shuffledCards.Count]);
+                //Shuffles Cards
+                shuffledCards = shuffledCards.OrderBy(a => Guid.NewGuid()).ToList();
+
+                //Adds visible cards to list
+                publicCards.Add(imgPlayerCardOne);
+                publicCards.Add(imgPlayerCardTwo);
+                publicCards.Add(imgEnemyCardTwo);
+                listBox1.DataSource = shuffledCards;
+
+
+                //Creates random index
+
+                label1.Text = Convert.ToString(shuffledCards.Count);
+                
+                for (int i = 0; i < publicCards.Count;)
+                {
+                    deltHands.Add(shuffledCards[shuffledCards.Count]);
+                    shuffledCards.Remove(shuffledCards[shuffledCards.Count]);
+                }
+
+                imgPlayerCardOne.Image = deltHands[0];
+
+                listBox1.DataSource = deltHands;
+                btnResetBet.Enabled = false;
+                btnDeal.Enabled = false;
+                imgPlayerCardOne.Visible = true;
             }
-            imgPlayerCardOne.Image = shuffledCards[shuffledCards.Count];
         }
     }
 }
