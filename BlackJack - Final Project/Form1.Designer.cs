@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainGame));
             this.lblBank = new System.Windows.Forms.Label();
-            this.imgEnemyFirstCard = new System.Windows.Forms.PictureBox();
             this.btnTutorials = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.imgEnemyFirstCard)).BeginInit();
+            this.imgDealHand = new System.Windows.Forms.PictureBox();
+            this.tmrAddCards = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBank
@@ -46,16 +48,6 @@
             this.lblBank.Size = new System.Drawing.Size(60, 20);
             this.lblBank.TabIndex = 0;
             this.lblBank.Text = "Bank: ";
-            // 
-            // imgEnemyFirstCard
-            // 
-            this.imgEnemyFirstCard.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgEnemyFirstCard.Location = new System.Drawing.Point(358, 12);
-            this.imgEnemyFirstCard.Name = "imgEnemyFirstCard";
-            this.imgEnemyFirstCard.Size = new System.Drawing.Size(100, 155);
-            this.imgEnemyFirstCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgEnemyFirstCard.TabIndex = 1;
-            this.imgEnemyFirstCard.TabStop = false;
             // 
             // btnTutorials
             // 
@@ -79,23 +71,37 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // imgDealHand
+            // 
+            this.imgDealHand.Location = new System.Drawing.Point(688, 12);
+            this.imgDealHand.Name = "imgDealHand";
+            this.imgDealHand.Size = new System.Drawing.Size(100, 155);
+            this.imgDealHand.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgDealHand.TabIndex = 6;
+            this.imgDealHand.TabStop = false;
+            this.imgDealHand.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgDealHand_MouseDown);
+            // 
+            // tmrAddCards
+            // 
+            this.tmrAddCards.Tick += new System.EventHandler(this.tmrAddCards_Tick);
+            // 
             // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::BlackJack___Final_Project.Properties.Resources.Basic_BlackJack_Background;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.imgDealHand);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnTutorials);
-            this.Controls.Add(this.imgEnemyFirstCard);
             this.Controls.Add(this.lblBank);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMainGame";
             this.Text = "BlackJack";
             this.Load += new System.EventHandler(this.frmMainGame_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.imgEnemyFirstCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,9 +110,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblBank;
-        private System.Windows.Forms.PictureBox imgEnemyFirstCard;
         private System.Windows.Forms.Button btnTutorials;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.PictureBox imgDealHand;
+        private System.Windows.Forms.Timer tmrAddCards;
     }
 }
 

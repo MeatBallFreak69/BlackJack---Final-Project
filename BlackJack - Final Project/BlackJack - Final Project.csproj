@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cards.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,9 +294,6 @@
     <None Include="Resources\QS.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\red_back.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\yellow_back.png" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +304,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Blackjack-values.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cards.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\betterCards.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sideChip_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sideChip_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sideChip_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sideChip_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sideChip_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sideChip_yellow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

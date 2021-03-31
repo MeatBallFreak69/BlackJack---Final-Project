@@ -15,6 +15,16 @@ namespace BlackJack___Final_Project
         int money;
         int playerCardValue;
         int EnemyCardValue;
+        int cardIndex;
+        int moveCardsTick;
+
+        Random shuffle = new Random();
+
+        Bitmap deck = Properties.Resources.betterCards;
+        List<Bitmap> cards = new List<Bitmap>();
+        List<Bitmap> shuffledDeck = new List<Bitmap>();
+
+
         public frmMainGame()
         {
             InitializeComponent();
@@ -22,7 +32,14 @@ namespace BlackJack___Final_Project
 
         private void frmMainGame_Load(object sender, EventArgs e)
         {
-            
+            for (int i = 0; i <= 3; i++)
+            {
+                for (int j = 0; j <= 12; j++)
+                {
+                    cards.Add(deck.Clone(new Rectangle(j * 61, i * 81, 39, 56), deck.PixelFormat));
+                }
+            }
+            imgDealHand.Image = Properties.Resources.red_back;
         }
 
         private void btnTutorials_Click(object sender, EventArgs e)
@@ -34,6 +51,18 @@ namespace BlackJack___Final_Project
         private void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void imgDealHand_MouseDown(object sender, MouseEventArgs e)
+        {
+            imgDealHand.Enabled = false;
+            
+
+        }
+
+        private void tmrAddCards_Tick(object sender, EventArgs e)
+        {
+            moveCardsTick++;
         }
     }
 }
