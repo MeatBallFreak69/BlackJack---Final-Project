@@ -17,6 +17,8 @@ namespace BlackJack___Final_Project
         int EnemyCardValue;
         int cardIndex;
         int moveCardsTick;
+        int selectChips;
+        int moneyOut;
 
         Random shuffle = new Random();
 
@@ -43,36 +45,31 @@ namespace BlackJack___Final_Project
             imgDealHand.Image = Properties.Resources.red_back;
             money = 100;
             lblBank.Text = "$" + Convert.ToString(money);
-            if (money % 1 == 0)
+            if (money - 1 > -1)
             {
                 chips.Add(1);
-                lstSelectChips.DataSource = chips;
-            }
-            else if (money % 5 == 0)
+            } 
+            if (money - 5 > -1)
             {
                 chips.Add(5);
-                lstSelectChips.DataSource = chips;
             }
-            else if (money % 10 == 0)
+            if (money - 10 > -1)
             {
                 chips.Add(10);
-                lstSelectChips.DataSource = chips;
             }
-            else if (money % 20 == 0)
+            if (money - 20 > -1)
             {
                 chips.Add(20);
-                lstSelectChips.DataSource = chips;
             }
-            else if (money % 50 == 0)
+            if (money - 50 > -1)
             {
                 chips.Add(50);
-                lstSelectChips.DataSource = chips;
             }
-            else if (money % 100 == 0)
+            if (money - 100 > -1)
             {
                 chips.Add(100);
-                lstSelectChips.DataSource = chips;
             }
+            lstSelectChips.DataSource = chips;
         }
 
         private void btnTutorials_Click(object sender, EventArgs e)
@@ -95,6 +92,24 @@ namespace BlackJack___Final_Project
         private void imgChpPlcDwn_MouseHover(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(imgChpPlcDwn, "Place chips here");
+        }
+
+        private void txtSelectChips_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSelectChips.Text != "")
+            {
+                btnSelectChips.Visible = true;
+            }
+            else
+            {
+                btnSelectChips.Visible = false;
+            }
+        }
+
+        private void btnSelectChips_Click(object sender, EventArgs e)
+        {
+            Int32.TryParse(txtSelectChips.Text, out selectChips);
+
         }
     }
 }
