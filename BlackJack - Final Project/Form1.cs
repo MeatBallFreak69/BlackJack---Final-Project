@@ -108,7 +108,85 @@ namespace BlackJack___Final_Project
         private void imgOneChip_MouseDown(object sender, MouseEventArgs e)
         {
             betAmount += 1;
-            lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            if (betAmount <= money)
+            {
+                lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            }
+            else
+            {
+                betAmount -= 1;
+                MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
+            }
+        }
+
+        private void imgFiveChip_MouseDown(object sender, MouseEventArgs e)
+        {
+            betAmount += 5;
+            if (betAmount <= money)
+            {
+                lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            }
+            else
+            {
+                betAmount -= 5;
+                MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
+            }
+        }
+
+        private void imgTenChip_MouseDown(object sender, MouseEventArgs e)
+        {
+            betAmount += 10;
+            if (betAmount <= money)
+            {
+                lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            }
+            else
+            {
+                betAmount -= 10;
+                MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
+            }
+        }
+
+        private void imgTwentyChip_MouseDown(object sender, MouseEventArgs e)
+        {
+            betAmount += 20;
+            if (betAmount <= money)
+            {
+                lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            }
+            else
+            {
+                betAmount -= 20;
+                MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
+            }
+        }
+
+        private void imgFiftyChip_MouseDown(object sender, MouseEventArgs e)
+        {
+            betAmount += 50;
+            if (betAmount <= money)
+            {
+                lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            }
+            else
+            {
+                betAmount -= 50;
+                MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
+            }
+        }
+
+        private void imgHundredChip_MouseDown(object sender, MouseEventArgs e)
+        {
+            betAmount += 100;
+            if (betAmount <= money)
+            {
+                lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+            }
+            else
+            {
+                betAmount -= 100;
+                MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
+            }
         }
     }
 }

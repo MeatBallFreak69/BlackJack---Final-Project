@@ -50,6 +50,7 @@
             this.tltFiftyChip = new System.Windows.Forms.ToolTip(this.components);
             this.tltHundredChip = new System.Windows.Forms.ToolTip(this.components);
             this.lblBet = new System.Windows.Forms.Label();
+            this.btnResetBet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
@@ -139,6 +140,7 @@
             this.imgFiveChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgFiveChip.TabIndex = 14;
             this.imgFiveChip.TabStop = false;
+            this.imgFiveChip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgFiveChip_MouseDown);
             this.imgFiveChip.MouseHover += new System.EventHandler(this.imgFiveChip_MouseHover);
             // 
             // imgTenChip
@@ -151,6 +153,7 @@
             this.imgTenChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgTenChip.TabIndex = 15;
             this.imgTenChip.TabStop = false;
+            this.imgTenChip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgTenChip_MouseDown);
             this.imgTenChip.MouseHover += new System.EventHandler(this.imgTenChip_MouseHover);
             // 
             // imgTwentyChip
@@ -163,6 +166,7 @@
             this.imgTwentyChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgTwentyChip.TabIndex = 16;
             this.imgTwentyChip.TabStop = false;
+            this.imgTwentyChip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgTwentyChip_MouseDown);
             this.imgTwentyChip.MouseHover += new System.EventHandler(this.imgTwentyChip_MouseHover);
             // 
             // imgFiftyChip
@@ -175,6 +179,7 @@
             this.imgFiftyChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgFiftyChip.TabIndex = 17;
             this.imgFiftyChip.TabStop = false;
+            this.imgFiftyChip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgFiftyChip_MouseDown);
             this.imgFiftyChip.MouseHover += new System.EventHandler(this.imgFiftyChip_MouseHover);
             // 
             // imgHundredChip
@@ -187,6 +192,7 @@
             this.imgHundredChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgHundredChip.TabIndex = 18;
             this.imgHundredChip.TabStop = false;
+            this.imgHundredChip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgHundredChip_MouseDown);
             this.imgHundredChip.MouseHover += new System.EventHandler(this.imgHundredChip_MouseHover);
             // 
             // lblBet
@@ -194,11 +200,21 @@
             this.lblBet.AutoSize = true;
             this.lblBet.BackColor = System.Drawing.Color.Transparent;
             this.lblBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBet.Location = new System.Drawing.Point(232, 210);
+            this.lblBet.Location = new System.Drawing.Point(317, 204);
             this.lblBet.Name = "lblBet";
             this.lblBet.Size = new System.Drawing.Size(114, 20);
             this.lblBet.TabIndex = 19;
             this.lblBet.Text = "Bet Amount: ";
+            // 
+            // btnResetBet
+            // 
+            this.btnResetBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetBet.Location = new System.Drawing.Point(236, 204);
+            this.btnResetBet.Name = "btnResetBet";
+            this.btnResetBet.Size = new System.Drawing.Size(75, 23);
+            this.btnResetBet.TabIndex = 20;
+            this.btnResetBet.Text = "Reset Bet";
+            this.btnResetBet.UseVisualStyleBackColor = true;
             // 
             // frmMainGame
             // 
@@ -207,6 +223,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.btnResetBet);
             this.Controls.Add(this.lblBet);
             this.Controls.Add(this.imgHundredChip);
             this.Controls.Add(this.imgFiftyChip);
@@ -260,6 +277,7 @@
         private System.Windows.Forms.ToolTip tltFiftyChip;
         private System.Windows.Forms.ToolTip tltHundredChip;
         private System.Windows.Forms.Label lblBet;
+        private System.Windows.Forms.Button btnResetBet;
     }
 }
 
