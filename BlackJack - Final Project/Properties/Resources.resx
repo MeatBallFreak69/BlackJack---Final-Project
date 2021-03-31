@@ -118,6 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="100Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideChip_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="10Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideChip_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideChip_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="20Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideChip_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="50Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideChip_purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="5Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideChip_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Basic BlackJack Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Basic BlackJack Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -127,31 +145,10 @@
   <data name="Blackjack-values" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blackjack-values.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cards" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cards.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="HandGuide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandGuide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="red_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideChip_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideChip_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideChip_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideChip_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideChip_purple" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideChip_purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideChip_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideChip_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideChip_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideChip_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideChip_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideChip_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

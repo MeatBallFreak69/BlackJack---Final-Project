@@ -63,6 +63,66 @@ namespace BlackJack___Final_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _100Chip {
+            get {
+                object obj = ResourceManager.GetObject("100Chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _10Chip {
+            get {
+                object obj = ResourceManager.GetObject("10Chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1Chip {
+            get {
+                object obj = ResourceManager.GetObject("1Chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _20Chip {
+            get {
+                object obj = ResourceManager.GetObject("20Chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _50Chip {
+            get {
+                object obj = ResourceManager.GetObject("50Chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5Chip {
+            get {
+                object obj = ResourceManager.GetObject("5Chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Basic_BlackJack_Background {
             get {
                 object obj = ResourceManager.GetObject("Basic BlackJack Background", resourceCulture);
@@ -93,16 +153,6 @@ namespace BlackJack___Final_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cards {
-            get {
-                object obj = ResourceManager.GetObject("cards", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap HandGuide {
             get {
                 object obj = ResourceManager.GetObject("HandGuide", resourceCulture);
@@ -116,66 +166,6 @@ namespace BlackJack___Final_Project.Properties {
         internal static System.Drawing.Bitmap red_back {
             get {
                 object obj = ResourceManager.GetObject("red_back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sideChip_blue {
-            get {
-                object obj = ResourceManager.GetObject("sideChip_blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sideChip_orange {
-            get {
-                object obj = ResourceManager.GetObject("sideChip_orange", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sideChip_purple {
-            get {
-                object obj = ResourceManager.GetObject("sideChip_purple", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sideChip_red {
-            get {
-                object obj = ResourceManager.GetObject("sideChip_red", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sideChip_white {
-            get {
-                object obj = ResourceManager.GetObject("sideChip_white", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sideChip_yellow {
-            get {
-                object obj = ResourceManager.GetObject("sideChip_yellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

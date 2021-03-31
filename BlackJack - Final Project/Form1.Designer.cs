@@ -35,7 +35,16 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.imgDealHand = new System.Windows.Forms.PictureBox();
             this.tmrAddCards = new System.Windows.Forms.Timer(this.components);
+            this.lstSelectChips = new System.Windows.Forms.ListBox();
+            this.txtSelectChips = new System.Windows.Forms.TextBox();
+            this.btnSelectChips = new System.Windows.Forms.Button();
+            this.lblSelectChips = new System.Windows.Forms.Label();
+            this.nudSelectChips = new System.Windows.Forms.NumericUpDown();
+            this.imgChpPlcDwn = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSelectChips)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBank
@@ -79,11 +88,64 @@
             this.imgDealHand.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgDealHand.TabIndex = 6;
             this.imgDealHand.TabStop = false;
-            this.imgDealHand.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgDealHand_MouseDown);
             // 
             // tmrAddCards
             // 
             this.tmrAddCards.Tick += new System.EventHandler(this.tmrAddCards_Tick);
+            // 
+            // lstSelectChips
+            // 
+            this.lstSelectChips.FormattingEnabled = true;
+            this.lstSelectChips.Location = new System.Drawing.Point(12, 221);
+            this.lstSelectChips.Name = "lstSelectChips";
+            this.lstSelectChips.Size = new System.Drawing.Size(91, 199);
+            this.lstSelectChips.TabIndex = 7;
+            // 
+            // txtSelectChips
+            // 
+            this.txtSelectChips.Location = new System.Drawing.Point(110, 341);
+            this.txtSelectChips.Name = "txtSelectChips";
+            this.txtSelectChips.Size = new System.Drawing.Size(76, 20);
+            this.txtSelectChips.TabIndex = 8;
+            // 
+            // btnSelectChips
+            // 
+            this.btnSelectChips.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectChips.Location = new System.Drawing.Point(110, 396);
+            this.btnSelectChips.Name = "btnSelectChips";
+            this.btnSelectChips.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectChips.TabIndex = 9;
+            this.btnSelectChips.Text = "Get Chips";
+            this.btnSelectChips.UseVisualStyleBackColor = true;
+            // 
+            // lblSelectChips
+            // 
+            this.lblSelectChips.AutoSize = true;
+            this.lblSelectChips.BackColor = System.Drawing.Color.Transparent;
+            this.lblSelectChips.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectChips.Location = new System.Drawing.Point(106, 221);
+            this.lblSelectChips.Name = "lblSelectChips";
+            this.lblSelectChips.Size = new System.Drawing.Size(96, 117);
+            this.lblSelectChips.TabIndex = 10;
+            this.lblSelectChips.Text = "Type the value \r\nof the chips\r\n you want, \r\nselect the \r\namount and \r\nclick the b" +
+    "utton\r\n to withdraw \r\nyour \r\nchips";
+            // 
+            // nudSelectChips
+            // 
+            this.nudSelectChips.Location = new System.Drawing.Point(110, 368);
+            this.nudSelectChips.Name = "nudSelectChips";
+            this.nudSelectChips.Size = new System.Drawing.Size(76, 20);
+            this.nudSelectChips.TabIndex = 11;
+            // 
+            // imgChpPlcDwn
+            // 
+            this.imgChpPlcDwn.BackColor = System.Drawing.Color.Green;
+            this.imgChpPlcDwn.Location = new System.Drawing.Point(236, 233);
+            this.imgChpPlcDwn.Name = "imgChpPlcDwn";
+            this.imgChpPlcDwn.Size = new System.Drawing.Size(343, 225);
+            this.imgChpPlcDwn.TabIndex = 12;
+            this.imgChpPlcDwn.TabStop = false;
+            this.imgChpPlcDwn.MouseHover += new System.EventHandler(this.imgChpPlcDwn_MouseHover);
             // 
             // frmMainGame
             // 
@@ -92,6 +154,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.imgChpPlcDwn);
+            this.Controls.Add(this.nudSelectChips);
+            this.Controls.Add(this.lblSelectChips);
+            this.Controls.Add(this.btnSelectChips);
+            this.Controls.Add(this.txtSelectChips);
+            this.Controls.Add(this.lstSelectChips);
             this.Controls.Add(this.imgDealHand);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnTutorials);
@@ -99,9 +167,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMainGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BlackJack";
             this.Load += new System.EventHandler(this.frmMainGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSelectChips)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +185,13 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.PictureBox imgDealHand;
         private System.Windows.Forms.Timer tmrAddCards;
+        private System.Windows.Forms.ListBox lstSelectChips;
+        private System.Windows.Forms.TextBox txtSelectChips;
+        private System.Windows.Forms.Button btnSelectChips;
+        private System.Windows.Forms.Label lblSelectChips;
+        private System.Windows.Forms.NumericUpDown nudSelectChips;
+        private System.Windows.Forms.PictureBox imgChpPlcDwn;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

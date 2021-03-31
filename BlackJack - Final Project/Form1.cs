@@ -23,6 +23,7 @@ namespace BlackJack___Final_Project
         Bitmap deck = Properties.Resources.betterCards;
         List<Bitmap> cards = new List<Bitmap>();
         List<Bitmap> shuffledDeck = new List<Bitmap>();
+        List<int> chips = new List<int>();
 
 
         public frmMainGame()
@@ -40,6 +41,38 @@ namespace BlackJack___Final_Project
                 }
             }
             imgDealHand.Image = Properties.Resources.red_back;
+            money = 100;
+            lblBank.Text = "$" + Convert.ToString(money);
+            if (money % 1 == 0)
+            {
+                chips.Add(1);
+                lstSelectChips.DataSource = chips;
+            }
+            else if (money % 5 == 0)
+            {
+                chips.Add(5);
+                lstSelectChips.DataSource = chips;
+            }
+            else if (money % 10 == 0)
+            {
+                chips.Add(10);
+                lstSelectChips.DataSource = chips;
+            }
+            else if (money % 20 == 0)
+            {
+                chips.Add(20);
+                lstSelectChips.DataSource = chips;
+            }
+            else if (money % 50 == 0)
+            {
+                chips.Add(50);
+                lstSelectChips.DataSource = chips;
+            }
+            else if (money % 100 == 0)
+            {
+                chips.Add(100);
+                lstSelectChips.DataSource = chips;
+            }
         }
 
         private void btnTutorials_Click(object sender, EventArgs e)
@@ -51,18 +84,17 @@ namespace BlackJack___Final_Project
         private void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void imgDealHand_MouseDown(object sender, MouseEventArgs e)
-        {
-            imgDealHand.Enabled = false;
             
-
         }
 
         private void tmrAddCards_Tick(object sender, EventArgs e)
         {
             moveCardsTick++;
+        }
+
+        private void imgChpPlcDwn_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(imgChpPlcDwn, "Place chips here");
         }
     }
 }
