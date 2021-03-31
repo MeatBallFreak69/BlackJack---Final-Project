@@ -35,16 +35,29 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.imgDealHand = new System.Windows.Forms.PictureBox();
             this.tmrAddCards = new System.Windows.Forms.Timer(this.components);
-            this.txtBetAmount = new System.Windows.Forms.TextBox();
-            this.btnPlaceBet = new System.Windows.Forms.Button();
             this.imgChpPlcDwn = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tltChipPlacement = new System.Windows.Forms.ToolTip(this.components);
             this.imgOneChip = new System.Windows.Forms.PictureBox();
             this.imgFiveChip = new System.Windows.Forms.PictureBox();
+            this.imgTenChip = new System.Windows.Forms.PictureBox();
+            this.imgTwentyChip = new System.Windows.Forms.PictureBox();
+            this.imgFiftyChip = new System.Windows.Forms.PictureBox();
+            this.imgHundredChip = new System.Windows.Forms.PictureBox();
+            this.tltOneChip = new System.Windows.Forms.ToolTip(this.components);
+            this.tltFiveChip = new System.Windows.Forms.ToolTip(this.components);
+            this.tltTenChip = new System.Windows.Forms.ToolTip(this.components);
+            this.tltTwentyChip = new System.Windows.Forms.ToolTip(this.components);
+            this.tltFiftyChip = new System.Windows.Forms.ToolTip(this.components);
+            this.tltHundredChip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblBet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiveChip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTenChip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTwentyChip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgFiftyChip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHundredChip)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBank
@@ -93,26 +106,6 @@
             // 
             this.tmrAddCards.Tick += new System.EventHandler(this.tmrAddCards_Tick);
             // 
-            // txtBetAmount
-            // 
-            this.txtBetAmount.Location = new System.Drawing.Point(109, 370);
-            this.txtBetAmount.Name = "txtBetAmount";
-            this.txtBetAmount.Size = new System.Drawing.Size(76, 20);
-            this.txtBetAmount.TabIndex = 8;
-            this.txtBetAmount.TextChanged += new System.EventHandler(this.txtSelectChips_TextChanged);
-            // 
-            // btnPlaceBet
-            // 
-            this.btnPlaceBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlaceBet.Location = new System.Drawing.Point(110, 396);
-            this.btnPlaceBet.Name = "btnPlaceBet";
-            this.btnPlaceBet.Size = new System.Drawing.Size(75, 23);
-            this.btnPlaceBet.TabIndex = 9;
-            this.btnPlaceBet.Text = "Place Bet";
-            this.btnPlaceBet.UseVisualStyleBackColor = true;
-            this.btnPlaceBet.Visible = false;
-            this.btnPlaceBet.Click += new System.EventHandler(this.btnSelectChips_Click);
-            // 
             // imgChpPlcDwn
             // 
             this.imgChpPlcDwn.BackColor = System.Drawing.Color.Green;
@@ -125,6 +118,7 @@
             // 
             // imgOneChip
             // 
+            this.imgOneChip.BackColor = System.Drawing.Color.Transparent;
             this.imgOneChip.Image = global::BlackJack___Final_Project.Properties.Resources._1Chip;
             this.imgOneChip.Location = new System.Drawing.Point(12, 359);
             this.imgOneChip.Name = "imgOneChip";
@@ -132,16 +126,79 @@
             this.imgOneChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgOneChip.TabIndex = 13;
             this.imgOneChip.TabStop = false;
+            this.imgOneChip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgOneChip_MouseDown);
+            this.imgOneChip.MouseHover += new System.EventHandler(this.imgOneChip_MouseHover);
             // 
             // imgFiveChip
             // 
-            this.imgFiveChip.Image = global::BlackJack___Final_Project.Properties.Resources._1Chip;
-            this.imgFiveChip.Location = new System.Drawing.Point(12, 293);
+            this.imgFiveChip.BackColor = System.Drawing.Color.Transparent;
+            this.imgFiveChip.Image = global::BlackJack___Final_Project.Properties.Resources._5Chip;
+            this.imgFiveChip.Location = new System.Drawing.Point(78, 359);
             this.imgFiveChip.Name = "imgFiveChip";
             this.imgFiveChip.Size = new System.Drawing.Size(60, 60);
             this.imgFiveChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgFiveChip.TabIndex = 14;
             this.imgFiveChip.TabStop = false;
+            this.imgFiveChip.MouseHover += new System.EventHandler(this.imgFiveChip_MouseHover);
+            // 
+            // imgTenChip
+            // 
+            this.imgTenChip.BackColor = System.Drawing.Color.Transparent;
+            this.imgTenChip.Image = global::BlackJack___Final_Project.Properties.Resources._10Chip;
+            this.imgTenChip.Location = new System.Drawing.Point(12, 293);
+            this.imgTenChip.Name = "imgTenChip";
+            this.imgTenChip.Size = new System.Drawing.Size(60, 60);
+            this.imgTenChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgTenChip.TabIndex = 15;
+            this.imgTenChip.TabStop = false;
+            this.imgTenChip.MouseHover += new System.EventHandler(this.imgTenChip_MouseHover);
+            // 
+            // imgTwentyChip
+            // 
+            this.imgTwentyChip.BackColor = System.Drawing.Color.Transparent;
+            this.imgTwentyChip.Image = global::BlackJack___Final_Project.Properties.Resources._20Chip;
+            this.imgTwentyChip.Location = new System.Drawing.Point(78, 293);
+            this.imgTwentyChip.Name = "imgTwentyChip";
+            this.imgTwentyChip.Size = new System.Drawing.Size(60, 60);
+            this.imgTwentyChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgTwentyChip.TabIndex = 16;
+            this.imgTwentyChip.TabStop = false;
+            this.imgTwentyChip.MouseHover += new System.EventHandler(this.imgTwentyChip_MouseHover);
+            // 
+            // imgFiftyChip
+            // 
+            this.imgFiftyChip.BackColor = System.Drawing.Color.Transparent;
+            this.imgFiftyChip.Image = global::BlackJack___Final_Project.Properties.Resources._50Chip;
+            this.imgFiftyChip.Location = new System.Drawing.Point(12, 227);
+            this.imgFiftyChip.Name = "imgFiftyChip";
+            this.imgFiftyChip.Size = new System.Drawing.Size(60, 60);
+            this.imgFiftyChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgFiftyChip.TabIndex = 17;
+            this.imgFiftyChip.TabStop = false;
+            this.imgFiftyChip.MouseHover += new System.EventHandler(this.imgFiftyChip_MouseHover);
+            // 
+            // imgHundredChip
+            // 
+            this.imgHundredChip.BackColor = System.Drawing.Color.Transparent;
+            this.imgHundredChip.Image = global::BlackJack___Final_Project.Properties.Resources._100Chip;
+            this.imgHundredChip.Location = new System.Drawing.Point(78, 227);
+            this.imgHundredChip.Name = "imgHundredChip";
+            this.imgHundredChip.Size = new System.Drawing.Size(60, 60);
+            this.imgHundredChip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgHundredChip.TabIndex = 18;
+            this.imgHundredChip.TabStop = false;
+            this.imgHundredChip.MouseHover += new System.EventHandler(this.imgHundredChip_MouseHover);
+            // 
+            // lblBet
+            // 
+            this.lblBet.AutoSize = true;
+            this.lblBet.BackColor = System.Drawing.Color.Transparent;
+            this.lblBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBet.Location = new System.Drawing.Point(232, 210);
+            this.lblBet.Name = "lblBet";
+            this.lblBet.Size = new System.Drawing.Size(114, 20);
+            this.lblBet.TabIndex = 19;
+            this.lblBet.Text = "Bet Amount: ";
             // 
             // frmMainGame
             // 
@@ -150,11 +207,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.lblBet);
+            this.Controls.Add(this.imgHundredChip);
+            this.Controls.Add(this.imgFiftyChip);
+            this.Controls.Add(this.imgTwentyChip);
+            this.Controls.Add(this.imgTenChip);
             this.Controls.Add(this.imgFiveChip);
             this.Controls.Add(this.imgOneChip);
             this.Controls.Add(this.imgChpPlcDwn);
-            this.Controls.Add(this.btnPlaceBet);
-            this.Controls.Add(this.txtBetAmount);
             this.Controls.Add(this.imgDealHand);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnTutorials);
@@ -169,6 +229,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiveChip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTenChip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTwentyChip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgFiftyChip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHundredChip)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,12 +245,21 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.PictureBox imgDealHand;
         private System.Windows.Forms.Timer tmrAddCards;
-        private System.Windows.Forms.TextBox txtBetAmount;
-        private System.Windows.Forms.Button btnPlaceBet;
         private System.Windows.Forms.PictureBox imgChpPlcDwn;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip tltChipPlacement;
         private System.Windows.Forms.PictureBox imgOneChip;
         private System.Windows.Forms.PictureBox imgFiveChip;
+        private System.Windows.Forms.PictureBox imgTenChip;
+        private System.Windows.Forms.PictureBox imgTwentyChip;
+        private System.Windows.Forms.PictureBox imgFiftyChip;
+        private System.Windows.Forms.PictureBox imgHundredChip;
+        private System.Windows.Forms.ToolTip tltOneChip;
+        private System.Windows.Forms.ToolTip tltFiveChip;
+        private System.Windows.Forms.ToolTip tltTenChip;
+        private System.Windows.Forms.ToolTip tltTwentyChip;
+        private System.Windows.Forms.ToolTip tltFiftyChip;
+        private System.Windows.Forms.ToolTip tltHundredChip;
+        private System.Windows.Forms.Label lblBet;
     }
 }
 

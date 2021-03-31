@@ -17,8 +17,9 @@ namespace BlackJack___Final_Project
         int EnemyCardValue;
         int cardIndex;
         int moveCardsTick;
-        int selectChips;
-        int moneyOut;
+        int betAmount = 0;
+
+        PictureBox selectedChip;
 
         Random shuffle = new Random();
 
@@ -65,25 +66,49 @@ namespace BlackJack___Final_Project
 
         private void imgChpPlcDwn_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(imgChpPlcDwn, "Place chips here");
+            tltChipPlacement.SetToolTip(imgChpPlcDwn, "Place chips here");
         }
 
-        private void txtSelectChips_TextChanged(object sender, EventArgs e)
+        private void imgOneChip_MouseHover(object sender, EventArgs e)
         {
-            if (txtBetAmount.Text != "")
-            {
-                btnPlaceBet.Visible = true;
-            }
-            else
-            {
-                btnPlaceBet.Visible = false;
-            }
-
+            tltOneChip.SetToolTip(imgOneChip, "Value: $1");
         }
 
-        private void btnSelectChips_Click(object sender, EventArgs e)
+        private void imgFiveChip_MouseHover(object sender, EventArgs e)
         {
-           
+            tltFiveChip.SetToolTip(imgFiveChip, "Value: $5");
+        }
+
+        private void imgTenChip_MouseHover(object sender, EventArgs e)
+        {
+            tltTenChip.SetToolTip(imgTenChip, "Value: $10");
+        }
+
+        private void imgTwentyChip_MouseHover(object sender, EventArgs e)
+        {
+            tltTwentyChip.SetToolTip(imgTwentyChip, "Value: $20");
+        }
+
+        private void imgFiftyChip_MouseHover(object sender, EventArgs e)
+        {
+            tltFiftyChip.SetToolTip(imgFiftyChip, "Value: $50");
+        }
+
+        private void imgHundredChip_MouseHover(object sender, EventArgs e)
+        {
+            tltHundredChip.SetToolTip(imgHundredChip, "Value: $100");
+        }
+
+        private void tmrChipFollowMouse_Tick(object sender, EventArgs e)
+        {
+            selectedChip.Left = MousePosition.X - selectedChip.Width;
+            selectedChip.Top = MousePosition.Y - selectedChip.Height;
+        }
+
+        private void imgOneChip_MouseDown(object sender, MouseEventArgs e)
+        {
+            betAmount += 1;
+            lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
         }
     }
 }
