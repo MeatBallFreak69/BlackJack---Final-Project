@@ -17,6 +17,7 @@ namespace BlackJack___Final_Project
         int turnCounter = 0;
 
         Bitmap deck = Properties.Resources.betterCards;
+
         List<Bitmap> cards = new List<Bitmap>();
         List<Bitmap> shuffledCards = new List<Bitmap>();
         List<Bitmap> deltHands = new List<Bitmap>();
@@ -251,25 +252,45 @@ namespace BlackJack___Final_Project
                 publicCards.Add(imgPlayerCardOne);
                 publicCards.Add(imgPlayerCardTwo);
                 publicCards.Add(imgEnemyCardTwo);
-                listBox1.DataSource = shuffledCards;
 
-
-                //Creates random index
-
-                label1.Text = Convert.ToString(shuffledCards.Count);
-                
-                for (int i = 0; i < publicCards.Count;)
+                //Removes cards from shuffled card list and adds it to cards delt
+                for (int i = 0; i < publicCards.Count; i++)
                 {
-                    deltHands.Add(shuffledCards[shuffledCards.Count]);
-                    shuffledCards.Remove(shuffledCards[shuffledCards.Count]);
+                    deltHands.Add(shuffledCards[i]);
+                    shuffledCards.Remove(shuffledCards[i]);
                 }
 
+                //Updates card iamges with the cards from the list deltHands
                 imgPlayerCardOne.Image = deltHands[0];
+                imgPlayerCardTwo.Image = deltHands[1];
+                imgEnemyCardTwo.Image = deltHands[2];
 
-                listBox1.DataSource = deltHands;
+                //Disables buttons
                 btnResetBet.Enabled = false;
                 btnDeal.Enabled = false;
+
+                //Makes cards 'playerCardOne', 'playerCardTwo', 'enemyCardOne', 'enemyCardTwo' visible
                 imgPlayerCardOne.Visible = true;
+                imgPlayerCardTwo.Visible = true;
+                imgEnemyCardOne.Visible = true;
+                imgEnemyCardTwo.Visible = true;
+
+               if (imgPlayerCardOne.Image == cards[0])
+                {
+                    MessageBox.Show("You have an ace");
+                }
+               else if (imgPlayerCardOne.Image == cards[13])
+                {
+                    MessageBox.Show("You have an ace");
+                }
+               else if (imgPlayerCardOne.Image == cards[26])
+                {
+                    MessageBox.Show("You have an ace");
+                }
+               else if (imgPlayerCardOne.Image == cards[39])
+                {
+                    MessageBox.Show("You have an ace");
+                }
             }
         }
     }

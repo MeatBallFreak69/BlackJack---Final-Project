@@ -59,8 +59,6 @@
             this.lblEnemyCardsValue = new System.Windows.Forms.Label();
             this.lblPlayerCardsValue = new System.Windows.Forms.Label();
             this.grpMenu = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
@@ -111,6 +109,7 @@
             // 
             // imgDealHand
             // 
+            this.imgDealHand.BackColor = System.Drawing.Color.Black;
             this.imgDealHand.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
             this.imgDealHand.Location = new System.Drawing.Point(688, 12);
             this.imgDealHand.Name = "imgDealHand";
@@ -246,6 +245,7 @@
             // 
             // imgEnemyCardOne
             // 
+            this.imgEnemyCardOne.BackColor = System.Drawing.Color.Black;
             this.imgEnemyCardOne.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
             this.imgEnemyCardOne.Location = new System.Drawing.Point(259, 12);
             this.imgEnemyCardOne.Name = "imgEnemyCardOne";
@@ -257,8 +257,9 @@
             // 
             // imgEnemyCardTwo
             // 
+            this.imgEnemyCardTwo.BackColor = System.Drawing.Color.Black;
             this.imgEnemyCardTwo.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgEnemyCardTwo.Location = new System.Drawing.Point(295, 12);
+            this.imgEnemyCardTwo.Location = new System.Drawing.Point(342, 12);
             this.imgEnemyCardTwo.Name = "imgEnemyCardTwo";
             this.imgEnemyCardTwo.Size = new System.Drawing.Size(100, 155);
             this.imgEnemyCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,8 +269,9 @@
             // 
             // imgPlayerCardTwo
             // 
+            this.imgPlayerCardTwo.BackColor = System.Drawing.Color.Black;
             this.imgPlayerCardTwo.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgPlayerCardTwo.Location = new System.Drawing.Point(295, 264);
+            this.imgPlayerCardTwo.Location = new System.Drawing.Point(342, 268);
             this.imgPlayerCardTwo.Name = "imgPlayerCardTwo";
             this.imgPlayerCardTwo.Size = new System.Drawing.Size(100, 155);
             this.imgPlayerCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -279,8 +281,9 @@
             // 
             // imgPlayerCardOne
             // 
+            this.imgPlayerCardOne.BackColor = System.Drawing.Color.Black;
             this.imgPlayerCardOne.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgPlayerCardOne.Location = new System.Drawing.Point(259, 264);
+            this.imgPlayerCardOne.Location = new System.Drawing.Point(259, 268);
             this.imgPlayerCardOne.Name = "imgPlayerCardOne";
             this.imgPlayerCardOne.Size = new System.Drawing.Size(100, 155);
             this.imgPlayerCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -323,23 +326,6 @@
             this.grpMenu.TabStop = false;
             this.grpMenu.Text = "Menu";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(629, 207);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 251);
-            this.listBox1.TabIndex = 29;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(532, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "label1";
-            // 
             // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,8 +333,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.grpMenu);
             this.Controls.Add(this.lblPlayerCardsValue);
             this.Controls.Add(this.lblEnemyCardsValue);
@@ -423,8 +407,6 @@
         private System.Windows.Forms.Label lblEnemyCardsValue;
         private System.Windows.Forms.Label lblPlayerCardsValue;
         private System.Windows.Forms.GroupBox grpMenu;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label1;
     }
 }
 
