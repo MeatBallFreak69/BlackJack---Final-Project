@@ -12,7 +12,7 @@ namespace BlackJack___Final_Project
 {
     public partial class frmMainGame : Form
     {
-        int money;
+        double money;
         public static int betAmount = 0;
         int turnCounter = 0;
         int playerCardsValue = 0;
@@ -269,8 +269,26 @@ namespace BlackJack___Final_Project
         public void enemyBust()
         {
             MessageBox.Show("Player win, dealer bust!", "You win!");
+
             enemyCardsValue = 0;
             playerCardsValue = 0;
+
+            for (int i = 0; i < publicCards.Count; i++)
+            {
+                publicCards.Remove(publicCards[i]);
+            }
+            imgEnemyCardFour.Image = Properties.Resources.red_back;
+            imgEnemyCardThree.Image = Properties.Resources.red_back;
+            imgEnemyCardTwo.Image = Properties.Resources.red_back;
+            imgEnemyCardOne.Image = Properties.Resources.red_back;
+            shuffledCards.Clear();
+            deltHands.Clear();
+
+            ShuffleDeck();
+
+            money += betAmount * 1.5;
+            lblBank.Text = "$" + Convert.ToString(money);
+            betAmount = 0;
         }
 
         public void checkFourthEnemyCard()
@@ -1758,6 +1776,11 @@ namespace BlackJack___Final_Project
             {
                 playerCardsValue += 10;
             }   
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            enemyBust();
         }
     }
 }
