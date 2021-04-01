@@ -204,15 +204,6 @@ namespace BlackJack___Final_Project
             }
         }
 
-        public void dealVisible()
-        {
-            //Reveals deal button
-            if (betAmount > 0)
-            {
-                btnDeal.Visible = true;
-            }
-        }
-
         public void CheckBet(int increaseBy)
         {
             //Adds bet and checks to see if you have enough to bet
@@ -227,7 +218,11 @@ namespace BlackJack___Final_Project
                 MessageBox.Show("Sorry, you're too poor to bet this much", "Broke!");
             }
 
-            dealVisible();
+            //Reveals deal button
+            if (betAmount > 0)
+            {
+                btnDeal.Visible = true;
+            }
         }
 
         public void cardValuesPreset(PictureBox player, int index, int playerTypeValue, int valueIncreaseBy)
@@ -236,171 +231,179 @@ namespace BlackJack___Final_Project
             {
                 playerTypeValue += valueIncreaseBy;
             }
+            
         }
 
         public void cardValues()
         {
             //First player card
-            cardValuesPreset(imgPlayerCardOne, 1, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardOne, 2, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardOne, 3, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardOne, 4, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardOne, 5, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardOne, 6, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardOne, 7, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardOne, 8, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardOne, 9, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 10, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 11, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 12, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 2, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardOne, 3, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardOne, 4, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardOne, 5, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardOne, 6, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardOne, 7, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardOne, 8, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardOne, 9, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 10, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 11, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 12, playerCardsValue, 10); 
+            
 
-            cardValuesPreset(imgPlayerCardOne, 14, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardOne, 15, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardOne, 16, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardOne, 17, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardOne, 18, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardOne, 19, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardOne, 20, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardOne, 21, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardOne, 22, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 23, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 24, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 25, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 14, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardOne, 15, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardOne, 16, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardOne, 17, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardOne, 18, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardOne, 19, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardOne, 20, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardOne, 21, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardOne, 22, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 23, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 24, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 25, playerCardsValue, 10);
 
-            cardValuesPreset(imgPlayerCardOne, 27, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardOne, 28, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardOne, 29, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardOne, 30, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardOne, 31, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardOne, 32, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardOne, 33, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardOne, 34, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardOne, 35, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 36, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 37, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 38, playerCardsValue, 10);
 
-            cardValuesPreset(imgPlayerCardOne, 40, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardOne, 41, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardOne, 42, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardOne, 43, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardOne, 44, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardOne, 45, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardOne, 46, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardOne, 47, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardOne, 48, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 49, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 50, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardOne, 51, playerCardsValue, 10); 
+                cardValuesPreset(imgPlayerCardOne, 27, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardOne, 28, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardOne, 29, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardOne, 30, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardOne, 31, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardOne, 32, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardOne, 33, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardOne, 34, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardOne, 35, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 36, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 37, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 38, playerCardsValue, 10);
+
+
+                cardValuesPreset(imgPlayerCardOne, 40, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardOne, 41, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardOne, 42, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardOne, 43, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardOne, 44, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardOne, 45, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardOne, 46, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardOne, 47, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardOne, 48, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 49, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 50, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardOne, 51, playerCardsValue, 10);
+
 
             //Second player card
+                cardValuesPreset(imgPlayerCardTwo, 1, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardTwo, 2, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardTwo, 3, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardTwo, 4, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardTwo, 5, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardTwo, 6, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardTwo, 7, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardTwo, 8, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardTwo, 9, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 10, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 11, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 12, playerCardsValue, 10);
 
-            cardValuesPreset(imgPlayerCardTwo, 1, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardTwo, 2, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardTwo, 3, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardTwo, 4, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardTwo, 5, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardTwo, 6, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardTwo, 7, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardTwo, 8, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardTwo, 9, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 10, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 11, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 12, playerCardsValue, 10);
 
-            cardValuesPreset(imgPlayerCardTwo, 14, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardTwo, 15, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardTwo, 16, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardTwo, 17, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardTwo, 18, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardTwo, 19, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardTwo, 20, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardTwo, 21, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardTwo, 22, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 23, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 24, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 25, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 14, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardTwo, 15, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardTwo, 16, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardTwo, 17, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardTwo, 18, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardTwo, 19, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardTwo, 20, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardTwo, 21, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardTwo, 22, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 23, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 24, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 25, playerCardsValue, 10);
 
-            cardValuesPreset(imgPlayerCardTwo, 27, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardTwo, 28, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardTwo, 29, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardTwo, 30, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardTwo, 31, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardTwo, 32, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardTwo, 33, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardTwo, 34, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardTwo, 35, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 36, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 37, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 38, playerCardsValue, 10);
 
-            cardValuesPreset(imgPlayerCardTwo, 40, playerCardsValue, 2);
-            cardValuesPreset(imgPlayerCardTwo, 41, playerCardsValue, 3);
-            cardValuesPreset(imgPlayerCardTwo, 42, playerCardsValue, 4);
-            cardValuesPreset(imgPlayerCardTwo, 43, playerCardsValue, 5);
-            cardValuesPreset(imgPlayerCardTwo, 44, playerCardsValue, 6);
-            cardValuesPreset(imgPlayerCardTwo, 45, playerCardsValue, 7);
-            cardValuesPreset(imgPlayerCardTwo, 46, playerCardsValue, 8);
-            cardValuesPreset(imgPlayerCardTwo, 47, playerCardsValue, 9);
-            cardValuesPreset(imgPlayerCardTwo, 48, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 49, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 50, playerCardsValue, 10);
-            cardValuesPreset(imgPlayerCardTwo, 51, playerCardsValue, 10); 
+                cardValuesPreset(imgPlayerCardTwo, 27, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardTwo, 28, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardTwo, 29, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardTwo, 30, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardTwo, 31, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardTwo, 32, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardTwo, 33, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardTwo, 34, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardTwo, 35, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 36, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 37, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 38, playerCardsValue, 10);
+
+
+                cardValuesPreset(imgPlayerCardTwo, 40, playerCardsValue, 2);
+                cardValuesPreset(imgPlayerCardTwo, 41, playerCardsValue, 3);
+                cardValuesPreset(imgPlayerCardTwo, 42, playerCardsValue, 4);
+                cardValuesPreset(imgPlayerCardTwo, 43, playerCardsValue, 5);
+                cardValuesPreset(imgPlayerCardTwo, 44, playerCardsValue, 6);
+                cardValuesPreset(imgPlayerCardTwo, 45, playerCardsValue, 7);
+                cardValuesPreset(imgPlayerCardTwo, 46, playerCardsValue, 8);
+                cardValuesPreset(imgPlayerCardTwo, 47, playerCardsValue, 9);
+                cardValuesPreset(imgPlayerCardTwo, 48, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 49, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 50, playerCardsValue, 10);
+                cardValuesPreset(imgPlayerCardTwo, 51, playerCardsValue, 10);
+
 
             //Second enemy card
-            cardValuesPreset(imgEnemyCardTwo, 1, enemyCardsValue, 2);
-            cardValuesPreset(imgEnemyCardTwo, 2, enemyCardsValue, 3);
-            cardValuesPreset(imgEnemyCardTwo, 3, enemyCardsValue, 4);
-            cardValuesPreset(imgEnemyCardTwo, 4, enemyCardsValue, 5);
-            cardValuesPreset(imgEnemyCardTwo, 5, enemyCardsValue, 6);
-            cardValuesPreset(imgEnemyCardTwo, 6, enemyCardsValue, 7);
-            cardValuesPreset(imgEnemyCardTwo, 7, enemyCardsValue, 8);
-            cardValuesPreset(imgEnemyCardTwo, 8, enemyCardsValue, 9);
-            cardValuesPreset(imgEnemyCardTwo, 9, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 10, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 11, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 12, enemyCardsValue, 10);
-
-            cardValuesPreset(imgEnemyCardTwo, 14, enemyCardsValue, 2);
-            cardValuesPreset(imgEnemyCardTwo, 15, enemyCardsValue, 3);
-            cardValuesPreset(imgEnemyCardTwo, 16, enemyCardsValue, 4);
-            cardValuesPreset(imgEnemyCardTwo, 17, enemyCardsValue, 5);
-            cardValuesPreset(imgEnemyCardTwo, 18, enemyCardsValue, 6);
-            cardValuesPreset(imgEnemyCardTwo, 19, enemyCardsValue, 7);
-            cardValuesPreset(imgEnemyCardTwo, 20, enemyCardsValue, 8);
-            cardValuesPreset(imgEnemyCardTwo, 21, enemyCardsValue, 9);
-            cardValuesPreset(imgEnemyCardTwo, 22, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 23, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 24, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 25, enemyCardsValue, 10);
-
-            cardValuesPreset(imgEnemyCardTwo, 27, enemyCardsValue, 2);
-            cardValuesPreset(imgEnemyCardTwo, 28, enemyCardsValue, 3);
-            cardValuesPreset(imgEnemyCardTwo, 29, enemyCardsValue, 4);
-            cardValuesPreset(imgEnemyCardTwo, 30, enemyCardsValue, 5);
-            cardValuesPreset(imgEnemyCardTwo, 31, enemyCardsValue, 6);
-            cardValuesPreset(imgEnemyCardTwo, 32, enemyCardsValue, 7);
-            cardValuesPreset(imgEnemyCardTwo, 33, enemyCardsValue, 8);
-            cardValuesPreset(imgEnemyCardTwo, 34, enemyCardsValue, 9);
-            cardValuesPreset(imgEnemyCardTwo, 35, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 36, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 37, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 38, enemyCardsValue, 10);
-
-            cardValuesPreset(imgEnemyCardTwo, 40, enemyCardsValue, 2);
-            cardValuesPreset(imgEnemyCardTwo, 41, enemyCardsValue, 3);
-            cardValuesPreset(imgEnemyCardTwo, 42, enemyCardsValue, 4);
-            cardValuesPreset(imgEnemyCardTwo, 43, enemyCardsValue, 5);
-            cardValuesPreset(imgEnemyCardTwo, 44, enemyCardsValue, 6);
-            cardValuesPreset(imgEnemyCardTwo, 45, enemyCardsValue, 7);
-            cardValuesPreset(imgEnemyCardTwo, 46, enemyCardsValue, 8);
-            cardValuesPreset(imgEnemyCardTwo, 47, enemyCardsValue, 9);
-            cardValuesPreset(imgEnemyCardTwo, 48, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 49, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 50, enemyCardsValue, 10);
-            cardValuesPreset(imgEnemyCardTwo, 51, enemyCardsValue, 10); 
+                cardValuesPreset(imgEnemyCardTwo, 1, enemyCardsValue, 2);
+                cardValuesPreset(imgEnemyCardTwo, 2, enemyCardsValue, 3);
+                cardValuesPreset(imgEnemyCardTwo, 3, enemyCardsValue, 4);
+                cardValuesPreset(imgEnemyCardTwo, 4, enemyCardsValue, 5);
+                cardValuesPreset(imgEnemyCardTwo, 5, enemyCardsValue, 6);
+                cardValuesPreset(imgEnemyCardTwo, 6, enemyCardsValue, 7);
+                cardValuesPreset(imgEnemyCardTwo, 7, enemyCardsValue, 8);
+                cardValuesPreset(imgEnemyCardTwo, 8, enemyCardsValue, 9);
+                cardValuesPreset(imgEnemyCardTwo, 9, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 10, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 11, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 12, enemyCardsValue, 10);
 
 
+                cardValuesPreset(imgEnemyCardTwo, 14, enemyCardsValue, 2);
+                cardValuesPreset(imgEnemyCardTwo, 15, enemyCardsValue, 3);
+                cardValuesPreset(imgEnemyCardTwo, 16, enemyCardsValue, 4);
+                cardValuesPreset(imgEnemyCardTwo, 17, enemyCardsValue, 5);
+                cardValuesPreset(imgEnemyCardTwo, 18, enemyCardsValue, 6);
+                cardValuesPreset(imgEnemyCardTwo, 19, enemyCardsValue, 7);
+                cardValuesPreset(imgEnemyCardTwo, 20, enemyCardsValue, 8);
+                cardValuesPreset(imgEnemyCardTwo, 21, enemyCardsValue, 9);
+                cardValuesPreset(imgEnemyCardTwo, 22, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 23, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 24, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 25, enemyCardsValue, 10);
+
+
+                cardValuesPreset(imgEnemyCardTwo, 27, enemyCardsValue, 2);
+                cardValuesPreset(imgEnemyCardTwo, 28, enemyCardsValue, 3);
+                cardValuesPreset(imgEnemyCardTwo, 29, enemyCardsValue, 4);
+                cardValuesPreset(imgEnemyCardTwo, 30, enemyCardsValue, 5);
+                cardValuesPreset(imgEnemyCardTwo, 31, enemyCardsValue, 6);
+                cardValuesPreset(imgEnemyCardTwo, 32, enemyCardsValue, 7);
+                cardValuesPreset(imgEnemyCardTwo, 33, enemyCardsValue, 8);
+                cardValuesPreset(imgEnemyCardTwo, 34, enemyCardsValue, 9);
+                cardValuesPreset(imgEnemyCardTwo, 35, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 36, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 37, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 38, enemyCardsValue, 10);
+
+
+                cardValuesPreset(imgEnemyCardTwo, 40, enemyCardsValue, 2);
+                cardValuesPreset(imgEnemyCardTwo, 41, enemyCardsValue, 3);
+                cardValuesPreset(imgEnemyCardTwo, 42, enemyCardsValue, 4);
+                cardValuesPreset(imgEnemyCardTwo, 43, enemyCardsValue, 5);
+                cardValuesPreset(imgEnemyCardTwo, 44, enemyCardsValue, 6);
+                cardValuesPreset(imgEnemyCardTwo, 45, enemyCardsValue, 7);
+                cardValuesPreset(imgEnemyCardTwo, 46, enemyCardsValue, 8);
+                cardValuesPreset(imgEnemyCardTwo, 47, enemyCardsValue, 9);
+                cardValuesPreset(imgEnemyCardTwo, 48, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 49, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 50, enemyCardsValue, 10);
+                cardValuesPreset(imgEnemyCardTwo, 51, enemyCardsValue, 10); 
         }
     }
 }

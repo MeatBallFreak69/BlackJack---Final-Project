@@ -59,6 +59,10 @@
             this.lblEnemyCardsValue = new System.Windows.Forms.Label();
             this.lblPlayerCardsValue = new System.Windows.Forms.Label();
             this.grpMenu = new System.Windows.Forms.GroupBox();
+            this.btnHit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.imgPlayerCardThree = new System.Windows.Forms.PictureBox();
+            this.imgEnemyCardThree = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
@@ -72,6 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardOne)).BeginInit();
             this.grpMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEnemyCardThree)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBank
@@ -326,6 +332,52 @@
             this.grpMenu.TabStop = false;
             this.grpMenu.Text = "Menu";
             // 
+            // btnHit
+            // 
+            this.btnHit.Enabled = false;
+            this.btnHit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHit.Location = new System.Drawing.Point(159, 293);
+            this.btnHit.Name = "btnHit";
+            this.btnHit.Size = new System.Drawing.Size(71, 35);
+            this.btnHit.TabIndex = 29;
+            this.btnHit.Text = "Hit";
+            this.btnHit.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(159, 374);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 35);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Stand";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // imgPlayerCardThree
+            // 
+            this.imgPlayerCardThree.BackColor = System.Drawing.Color.Black;
+            this.imgPlayerCardThree.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
+            this.imgPlayerCardThree.Location = new System.Drawing.Point(425, 268);
+            this.imgPlayerCardThree.Name = "imgPlayerCardThree";
+            this.imgPlayerCardThree.Size = new System.Drawing.Size(100, 155);
+            this.imgPlayerCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPlayerCardThree.TabIndex = 31;
+            this.imgPlayerCardThree.TabStop = false;
+            this.imgPlayerCardThree.Visible = false;
+            // 
+            // imgEnemyCardThree
+            // 
+            this.imgEnemyCardThree.BackColor = System.Drawing.Color.Black;
+            this.imgEnemyCardThree.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
+            this.imgEnemyCardThree.Location = new System.Drawing.Point(425, 12);
+            this.imgEnemyCardThree.Name = "imgEnemyCardThree";
+            this.imgEnemyCardThree.Size = new System.Drawing.Size(100, 155);
+            this.imgEnemyCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEnemyCardThree.TabIndex = 32;
+            this.imgEnemyCardThree.TabStop = false;
+            this.imgEnemyCardThree.Visible = false;
+            // 
             // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +385,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.imgEnemyCardThree);
+            this.Controls.Add(this.imgPlayerCardThree);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHit);
             this.Controls.Add(this.grpMenu);
             this.Controls.Add(this.lblPlayerCardsValue);
             this.Controls.Add(this.lblEnemyCardsValue);
@@ -371,6 +427,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardOne)).EndInit();
             this.grpMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEnemyCardThree)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,6 +465,10 @@
         private System.Windows.Forms.Label lblEnemyCardsValue;
         private System.Windows.Forms.Label lblPlayerCardsValue;
         private System.Windows.Forms.GroupBox grpMenu;
+        private System.Windows.Forms.Button btnHit;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox imgPlayerCardThree;
+        private System.Windows.Forms.PictureBox imgEnemyCardThree;
     }
 }
 
