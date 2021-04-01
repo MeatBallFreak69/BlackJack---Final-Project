@@ -60,9 +60,10 @@
             this.lblPlayerCardsValue = new System.Windows.Forms.Label();
             this.grpMenu = new System.Windows.Forms.GroupBox();
             this.btnHit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnStand = new System.Windows.Forms.Button();
             this.imgPlayerCardThree = new System.Windows.Forms.PictureBox();
             this.imgEnemyCardThree = new System.Windows.Forms.PictureBox();
+            this.imgEnemyCardFour = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
@@ -78,6 +79,7 @@
             this.grpMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEnemyCardThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEnemyCardFour)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBank
@@ -343,16 +345,17 @@
             this.btnHit.Text = "Hit";
             this.btnHit.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnStand
             // 
-            this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(159, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 35);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Stand";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStand.Enabled = false;
+            this.btnStand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStand.Location = new System.Drawing.Point(159, 374);
+            this.btnStand.Name = "btnStand";
+            this.btnStand.Size = new System.Drawing.Size(71, 35);
+            this.btnStand.TabIndex = 30;
+            this.btnStand.Text = "Stand";
+            this.btnStand.UseVisualStyleBackColor = true;
+            this.btnStand.Click += new System.EventHandler(this.btnStand_Click);
             // 
             // imgPlayerCardThree
             // 
@@ -378,6 +381,18 @@
             this.imgEnemyCardThree.TabStop = false;
             this.imgEnemyCardThree.Visible = false;
             // 
+            // imgEnemyCardFour
+            // 
+            this.imgEnemyCardFour.BackColor = System.Drawing.Color.Black;
+            this.imgEnemyCardFour.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
+            this.imgEnemyCardFour.Location = new System.Drawing.Point(504, 12);
+            this.imgEnemyCardFour.Name = "imgEnemyCardFour";
+            this.imgEnemyCardFour.Size = new System.Drawing.Size(100, 155);
+            this.imgEnemyCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEnemyCardFour.TabIndex = 33;
+            this.imgEnemyCardFour.TabStop = false;
+            this.imgEnemyCardFour.Visible = false;
+            // 
             // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,9 +400,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.imgEnemyCardFour);
             this.Controls.Add(this.imgEnemyCardThree);
             this.Controls.Add(this.imgPlayerCardThree);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnStand);
             this.Controls.Add(this.btnHit);
             this.Controls.Add(this.grpMenu);
             this.Controls.Add(this.lblPlayerCardsValue);
@@ -429,6 +445,7 @@
             this.grpMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayerCardThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEnemyCardThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEnemyCardFour)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,9 +483,10 @@
         private System.Windows.Forms.Label lblPlayerCardsValue;
         private System.Windows.Forms.GroupBox grpMenu;
         private System.Windows.Forms.Button btnHit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStand;
         private System.Windows.Forms.PictureBox imgPlayerCardThree;
         private System.Windows.Forms.PictureBox imgEnemyCardThree;
+        private System.Windows.Forms.PictureBox imgEnemyCardFour;
     }
 }
 

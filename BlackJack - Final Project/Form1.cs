@@ -44,7 +44,7 @@ namespace BlackJack___Final_Project
             betAmount = 0;
             lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
         }
-        
+
         private void btnTutorials_Click(object sender, EventArgs e)
         {
             frmTutorials formTutorials = new frmTutorials();
@@ -171,18 +171,59 @@ namespace BlackJack___Final_Project
                 btnResetBet.Enabled = false;
                 btnDeal.Enabled = false;
 
+
+
                 //Makes cards 'playerCardOne', 'playerCardTwo', 'enemyCardOne', 'enemyCardTwo' visible
                 imgPlayerCardOne.Visible = true;
                 imgPlayerCardTwo.Visible = true;
                 imgEnemyCardOne.Visible = true;
-                imgEnemyCardTwo.Visible = true;
+                imgEnemyCardTwo.Visible = true;      //Checks card values
 
-                //Checks card values
-                cardValues();
+                checkPlayerCardOne();
+                checkPlayerSecondCard();
+                checkSecondEnemyCard();
                 lblPlayerCardsValue.Text = Convert.ToString(playerCardsValue);
                 lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+                btnStand.Enabled = true;
             }
         }
+        private void btnStand_Click(object sender, EventArgs e)
+        {
+            publicCards.Add(imgEnemyCardOne);
+            deltHands.Add(shuffledCards[0]);
+            shuffledCards.Remove(shuffledCards[0]);
+
+            imgEnemyCardOne.Image = deltHands[3];
+
+            checkFirstEnemyCard();
+            lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+
+            if (enemyCardsValue < 17)
+            {
+                publicCards.Add(imgEnemyCardThree);
+                deltHands.Add(shuffledCards[0]);
+                shuffledCards.Remove(shuffledCards[0]);
+                imgEnemyCardThree.Visible = true;
+                imgEnemyCardThree.Image = deltHands[4];
+
+                checkThirdEnemyCard();
+                lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+                if (enemyCardsValue < 17)
+                {
+                    publicCards.Add(imgEnemyCardFour);
+                    deltHands.Add(shuffledCards[0]);
+                    shuffledCards.Remove(shuffledCards[0]);
+                    imgEnemyCardFour.Visible = true;
+                    imgEnemyCardThree.Image = deltHands[5];
+
+                    checkFourthEnemyCard();
+                    lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+                }
+            }
+
+            
+        }
+
         public void ShuffleDeck()
         {
             shuffledCards.Clear();
@@ -191,7 +232,7 @@ namespace BlackJack___Final_Project
                 shuffledCards.Add(cards[i]);
             }
         }
-        
+
         public void CreateDeck()
         {
             //Seperates each image from spritesheet and adds to a list
@@ -225,185 +266,1498 @@ namespace BlackJack___Final_Project
             }
         }
 
-        public void cardValuesPreset(PictureBox player, int index, int playerTypeValue, int valueIncreaseBy)
+        public void enemyBust()
         {
-            if (player.Image == cards[index])
-            {
-                playerTypeValue += valueIncreaseBy;
-            }
-            
+            MessageBox.Show("Player win, dealer bust!", "You win!");
+            enemyCardsValue = 0;
+            playerCardsValue = 0;
         }
 
-        public void cardValues()
+        public void checkFourthEnemyCard()
         {
-            //First player card
-                cardValuesPreset(imgPlayerCardOne, 2, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardOne, 3, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardOne, 4, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardOne, 5, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardOne, 6, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardOne, 7, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardOne, 8, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardOne, 9, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 10, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 11, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 12, playerCardsValue, 10); 
-            
+            //Spades
+            if (imgEnemyCardFour.Image == cards[0])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardFour.Image == cards[1])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardFour.Image == cards[2])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardFour.Image == cards[3])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardFour.Image == cards[4])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardFour.Image == cards[5])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardFour.Image == cards[6])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardFour.Image == cards[7])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardFour.Image == cards[8])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardFour.Image == cards[9])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[10])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[11])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[12])
+            {
+                enemyCardsValue += 10;
+            }
 
-                cardValuesPreset(imgPlayerCardOne, 14, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardOne, 15, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardOne, 16, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardOne, 17, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardOne, 18, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardOne, 19, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardOne, 20, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardOne, 21, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardOne, 22, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 23, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 24, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 25, playerCardsValue, 10);
+            //Clubs
+            if (imgEnemyCardFour.Image == cards[13])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardFour.Image == cards[14])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardFour.Image == cards[15])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardFour.Image == cards[16])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardFour.Image == cards[17])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardFour.Image == cards[18])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardFour.Image == cards[19])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardFour.Image == cards[20])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardFour.Image == cards[21])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardFour.Image == cards[22])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[23])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[24])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[25])
+            {
+                enemyCardsValue += 10;
+            }
 
+            //Diamonds
+            if (imgEnemyCardFour.Image == cards[26])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardFour.Image == cards[27])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardFour.Image == cards[28])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardFour.Image == cards[29])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardFour.Image == cards[30])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardFour.Image == cards[31])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardFour.Image == cards[32])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardFour.Image == cards[33])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardFour.Image == cards[34])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardFour.Image == cards[35])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[36])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[37])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[38])
+            {
+                enemyCardsValue += 10;
+            }
 
-                cardValuesPreset(imgPlayerCardOne, 27, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardOne, 28, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardOne, 29, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardOne, 30, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardOne, 31, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardOne, 32, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardOne, 33, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardOne, 34, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardOne, 35, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 36, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 37, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 38, playerCardsValue, 10);
+            //Hearts
+            if (imgEnemyCardFour.Image == cards[39])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardFour.Image == cards[40])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardFour.Image == cards[41])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardFour.Image == cards[42])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardFour.Image == cards[43])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardFour.Image == cards[44])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardFour.Image == cards[45])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardFour.Image == cards[46])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardFour.Image == cards[47])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardFour.Image == cards[48])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[49])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[50])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardFour.Image == cards[51])
+            {
+                enemyCardsValue += 10;
+            }
+        }
 
+        public void checkPlayerSecondCard()
+        {
+            if (imgPlayerCardTwo.Image == cards[0])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardTwo.Image == cards[1])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardTwo.Image == cards[2])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardTwo.Image == cards[3])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardTwo.Image == cards[4])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardTwo.Image == cards[5])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardTwo.Image == cards[6])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardTwo.Image == cards[7])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardTwo.Image == cards[8])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardTwo.Image == cards[9])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[10])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[11])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[12])
+            {
+                playerCardsValue += 10;
+            }
 
-                cardValuesPreset(imgPlayerCardOne, 40, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardOne, 41, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardOne, 42, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardOne, 43, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardOne, 44, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardOne, 45, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardOne, 46, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardOne, 47, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardOne, 48, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 49, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 50, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardOne, 51, playerCardsValue, 10);
+            //Clubs
+            if (imgPlayerCardTwo.Image == cards[13])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardTwo.Image == cards[14])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardTwo.Image == cards[15])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardTwo.Image == cards[16])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardTwo.Image == cards[17])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardTwo.Image == cards[18])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardTwo.Image == cards[19])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardTwo.Image == cards[20])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardTwo.Image == cards[21])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardTwo.Image == cards[22])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[23])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[24])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[25])
+            {
+                playerCardsValue += 10;
+            }
 
+            //Diamonds
+            if (imgPlayerCardTwo.Image == cards[26])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardTwo.Image == cards[27])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardTwo.Image == cards[28])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardTwo.Image == cards[29])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardTwo.Image == cards[30])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardTwo.Image == cards[31])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardTwo.Image == cards[32])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardTwo.Image == cards[33])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardTwo.Image == cards[34])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardTwo.Image == cards[35])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[36])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[37])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[38])
+            {
+                playerCardsValue += 10;
+            }
 
-            //Second player card
-                cardValuesPreset(imgPlayerCardTwo, 1, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardTwo, 2, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardTwo, 3, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardTwo, 4, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardTwo, 5, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardTwo, 6, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardTwo, 7, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardTwo, 8, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardTwo, 9, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 10, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 11, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 12, playerCardsValue, 10);
+            //Hearts
+            if (imgPlayerCardTwo.Image == cards[39])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardTwo.Image == cards[40])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardTwo.Image == cards[41])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardTwo.Image == cards[42])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardTwo.Image == cards[43])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardTwo.Image == cards[44])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardTwo.Image == cards[45])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardTwo.Image == cards[46])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardTwo.Image == cards[47])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardTwo.Image == cards[48])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[49])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[50])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardTwo.Image == cards[51])
+            {
+                playerCardsValue += 10;
+            } 
+        }
 
+        public void checkFirstEnemyCard()
+        {
+            //First enemy card
 
-                cardValuesPreset(imgPlayerCardTwo, 14, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardTwo, 15, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardTwo, 16, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardTwo, 17, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardTwo, 18, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardTwo, 19, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardTwo, 20, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardTwo, 21, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardTwo, 22, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 23, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 24, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 25, playerCardsValue, 10);
+            //Spades
+            if (imgEnemyCardOne.Image == cards[0])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardOne.Image == cards[1])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardOne.Image == cards[2])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardOne.Image == cards[3])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardOne.Image == cards[4])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardOne.Image == cards[5])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardOne.Image == cards[6])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardOne.Image == cards[7])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardOne.Image == cards[8])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardOne.Image == cards[9])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[10])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[11])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[12])
+            {
+                enemyCardsValue += 10;
+            }
 
+            //Clubs
+            if (imgEnemyCardOne.Image == cards[13])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardOne.Image == cards[14])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardOne.Image == cards[15])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardOne.Image == cards[16])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardOne.Image == cards[17])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardOne.Image == cards[18])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardOne.Image == cards[19])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardOne.Image == cards[20])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardOne.Image == cards[21])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardOne.Image == cards[22])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[23])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[24])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[25])
+            {
+                enemyCardsValue += 10;
+            }
 
-                cardValuesPreset(imgPlayerCardTwo, 27, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardTwo, 28, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardTwo, 29, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardTwo, 30, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardTwo, 31, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardTwo, 32, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardTwo, 33, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardTwo, 34, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardTwo, 35, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 36, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 37, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 38, playerCardsValue, 10);
+            //Diamonds
+            if (imgEnemyCardOne.Image == cards[26])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardOne.Image == cards[27])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardOne.Image == cards[28])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardOne.Image == cards[29])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardOne.Image == cards[30])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardOne.Image == cards[31])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardOne.Image == cards[32])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardOne.Image == cards[33])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardOne.Image == cards[34])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardOne.Image == cards[35])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[36])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[37])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[38])
+            {
+                enemyCardsValue += 10;
+            }
 
+            //Hearts
+            if (imgEnemyCardOne.Image == cards[39])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardOne.Image == cards[40])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardOne.Image == cards[41])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardOne.Image == cards[42])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardOne.Image == cards[43])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardOne.Image == cards[44])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardOne.Image == cards[45])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardOne.Image == cards[46])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardOne.Image == cards[47])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardOne.Image == cards[48])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[49])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[50])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardOne.Image == cards[51])
+            {
+                enemyCardsValue += 10;
+            }
+        }
 
-                cardValuesPreset(imgPlayerCardTwo, 40, playerCardsValue, 2);
-                cardValuesPreset(imgPlayerCardTwo, 41, playerCardsValue, 3);
-                cardValuesPreset(imgPlayerCardTwo, 42, playerCardsValue, 4);
-                cardValuesPreset(imgPlayerCardTwo, 43, playerCardsValue, 5);
-                cardValuesPreset(imgPlayerCardTwo, 44, playerCardsValue, 6);
-                cardValuesPreset(imgPlayerCardTwo, 45, playerCardsValue, 7);
-                cardValuesPreset(imgPlayerCardTwo, 46, playerCardsValue, 8);
-                cardValuesPreset(imgPlayerCardTwo, 47, playerCardsValue, 9);
-                cardValuesPreset(imgPlayerCardTwo, 48, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 49, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 50, playerCardsValue, 10);
-                cardValuesPreset(imgPlayerCardTwo, 51, playerCardsValue, 10);
-
-
+        public void checkSecondEnemyCard()
+        {
             //Second enemy card
-                cardValuesPreset(imgEnemyCardTwo, 1, enemyCardsValue, 2);
-                cardValuesPreset(imgEnemyCardTwo, 2, enemyCardsValue, 3);
-                cardValuesPreset(imgEnemyCardTwo, 3, enemyCardsValue, 4);
-                cardValuesPreset(imgEnemyCardTwo, 4, enemyCardsValue, 5);
-                cardValuesPreset(imgEnemyCardTwo, 5, enemyCardsValue, 6);
-                cardValuesPreset(imgEnemyCardTwo, 6, enemyCardsValue, 7);
-                cardValuesPreset(imgEnemyCardTwo, 7, enemyCardsValue, 8);
-                cardValuesPreset(imgEnemyCardTwo, 8, enemyCardsValue, 9);
-                cardValuesPreset(imgEnemyCardTwo, 9, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 10, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 11, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 12, enemyCardsValue, 10);
+            //Spades
+            if (imgEnemyCardTwo.Image == cards[0])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            if (imgEnemyCardTwo.Image == cards[1])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardTwo.Image == cards[2])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardTwo.Image == cards[3])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardTwo.Image == cards[4])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardTwo.Image == cards[5])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardTwo.Image == cards[6])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardTwo.Image == cards[7])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardTwo.Image == cards[8])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardTwo.Image == cards[9])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[10])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[11])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[12])
+            {
+                enemyCardsValue += 10;
+            }
 
+            //Clubs
+            if (imgEnemyCardTwo.Image == cards[13])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardTwo.Image == cards[14])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardTwo.Image == cards[15])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardTwo.Image == cards[16])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardTwo.Image == cards[17])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardTwo.Image == cards[18])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardTwo.Image == cards[19])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardTwo.Image == cards[20])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardTwo.Image == cards[21])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardTwo.Image == cards[22])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[23])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[24])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[25])
+            {
+                enemyCardsValue += 10;
+            }
 
-                cardValuesPreset(imgEnemyCardTwo, 14, enemyCardsValue, 2);
-                cardValuesPreset(imgEnemyCardTwo, 15, enemyCardsValue, 3);
-                cardValuesPreset(imgEnemyCardTwo, 16, enemyCardsValue, 4);
-                cardValuesPreset(imgEnemyCardTwo, 17, enemyCardsValue, 5);
-                cardValuesPreset(imgEnemyCardTwo, 18, enemyCardsValue, 6);
-                cardValuesPreset(imgEnemyCardTwo, 19, enemyCardsValue, 7);
-                cardValuesPreset(imgEnemyCardTwo, 20, enemyCardsValue, 8);
-                cardValuesPreset(imgEnemyCardTwo, 21, enemyCardsValue, 9);
-                cardValuesPreset(imgEnemyCardTwo, 22, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 23, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 24, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 25, enemyCardsValue, 10);
+            //Diamonds 
+            if (imgEnemyCardTwo.Image == cards[26])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardTwo.Image == cards[27])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardTwo.Image == cards[28])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardTwo.Image == cards[29])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardTwo.Image == cards[30])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardTwo.Image == cards[31])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardTwo.Image == cards[32])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardTwo.Image == cards[33])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardTwo.Image == cards[34])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardTwo.Image == cards[35])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[36])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[37])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[38])
+            {
+                enemyCardsValue += 10;
+            }
 
+            //Hearts 
+            if (imgEnemyCardTwo.Image == cards[39])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardTwo.Image == cards[40])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardTwo.Image == cards[41])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardTwo.Image == cards[42])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardTwo.Image == cards[43])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardTwo.Image == cards[44])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardTwo.Image == cards[45])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardTwo.Image == cards[46])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardTwo.Image == cards[47])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardTwo.Image == cards[48])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[49])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[50])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardTwo.Image == cards[51])
+            {
+                enemyCardsValue += 10;
+            }
+        }
 
-                cardValuesPreset(imgEnemyCardTwo, 27, enemyCardsValue, 2);
-                cardValuesPreset(imgEnemyCardTwo, 28, enemyCardsValue, 3);
-                cardValuesPreset(imgEnemyCardTwo, 29, enemyCardsValue, 4);
-                cardValuesPreset(imgEnemyCardTwo, 30, enemyCardsValue, 5);
-                cardValuesPreset(imgEnemyCardTwo, 31, enemyCardsValue, 6);
-                cardValuesPreset(imgEnemyCardTwo, 32, enemyCardsValue, 7);
-                cardValuesPreset(imgEnemyCardTwo, 33, enemyCardsValue, 8);
-                cardValuesPreset(imgEnemyCardTwo, 34, enemyCardsValue, 9);
-                cardValuesPreset(imgEnemyCardTwo, 35, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 36, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 37, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 38, enemyCardsValue, 10);
+        public void checkThirdEnemyCard()
+        {
+            //First enemy card
 
+            //Spades
+            if (imgEnemyCardThree.Image == cards[0])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardThree.Image == cards[1])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardThree.Image == cards[2])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardThree.Image == cards[3])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardThree.Image == cards[4])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardThree.Image == cards[5])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardThree.Image == cards[6])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardThree.Image == cards[7])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardThree.Image == cards[8])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardThree.Image == cards[9])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[10])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[11])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[12])
+            {
+                enemyCardsValue += 10;
+            }
 
-                cardValuesPreset(imgEnemyCardTwo, 40, enemyCardsValue, 2);
-                cardValuesPreset(imgEnemyCardTwo, 41, enemyCardsValue, 3);
-                cardValuesPreset(imgEnemyCardTwo, 42, enemyCardsValue, 4);
-                cardValuesPreset(imgEnemyCardTwo, 43, enemyCardsValue, 5);
-                cardValuesPreset(imgEnemyCardTwo, 44, enemyCardsValue, 6);
-                cardValuesPreset(imgEnemyCardTwo, 45, enemyCardsValue, 7);
-                cardValuesPreset(imgEnemyCardTwo, 46, enemyCardsValue, 8);
-                cardValuesPreset(imgEnemyCardTwo, 47, enemyCardsValue, 9);
-                cardValuesPreset(imgEnemyCardTwo, 48, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 49, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 50, enemyCardsValue, 10);
-                cardValuesPreset(imgEnemyCardTwo, 51, enemyCardsValue, 10); 
+            //Clubs
+            if (imgEnemyCardThree.Image == cards[13])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardThree.Image == cards[14])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardThree.Image == cards[15])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardThree.Image == cards[16])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardThree.Image == cards[17])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardThree.Image == cards[18])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardThree.Image == cards[19])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardThree.Image == cards[20])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardThree.Image == cards[21])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardThree.Image == cards[22])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[23])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[24])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[25])
+            {
+                enemyCardsValue += 10;
+            }
+
+            //Diamonds
+            if (imgEnemyCardThree.Image == cards[26])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardThree.Image == cards[27])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardThree.Image == cards[28])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardThree.Image == cards[29])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardThree.Image == cards[30])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardThree.Image == cards[31])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardThree.Image == cards[32])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardThree.Image == cards[33])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardThree.Image == cards[34])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardThree.Image == cards[35])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[36])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[37])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[38])
+            {
+                enemyCardsValue += 10;
+            }
+
+            //Hearts
+            if (imgEnemyCardThree.Image == cards[39])
+            {
+                if (enemyCardsValue <= 10)
+                {
+                    enemyCardsValue += 10;
+                }
+                else
+                {
+                    enemyCardsValue += 1;
+                }
+            }
+            else if (imgEnemyCardThree.Image == cards[40])
+            {
+                enemyCardsValue += 2;
+            }
+            else if (imgEnemyCardThree.Image == cards[41])
+            {
+                enemyCardsValue += 3;
+            }
+            else if (imgEnemyCardThree.Image == cards[42])
+            {
+                enemyCardsValue += 4;
+            }
+            else if (imgEnemyCardThree.Image == cards[43])
+            {
+                enemyCardsValue += 5;
+            }
+            else if (imgEnemyCardThree.Image == cards[44])
+            {
+                enemyCardsValue += 6;
+            }
+            else if (imgEnemyCardThree.Image == cards[45])
+            {
+                enemyCardsValue += 7;
+            }
+            else if (imgEnemyCardThree.Image == cards[46])
+            {
+                enemyCardsValue += 8;
+            }
+            else if (imgEnemyCardThree.Image == cards[47])
+            {
+                enemyCardsValue += 9;
+            }
+            else if (imgEnemyCardThree.Image == cards[48])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[49])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[50])
+            {
+                enemyCardsValue += 10;
+            }
+            else if (imgEnemyCardThree.Image == cards[51])
+            {
+                enemyCardsValue += 10;
+            }
+        }
+
+        public void checkPlayerCardOne()
+        {  
+            //First player card
+            //Spades
+            if (imgPlayerCardOne.Image == cards[0])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardOne.Image == cards[1])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardOne.Image == cards[2])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardOne.Image == cards[3])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardOne.Image == cards[4])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardOne.Image == cards[5])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardOne.Image == cards[6])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardOne.Image == cards[7])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardOne.Image == cards[8])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardOne.Image == cards[9])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[10])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[11])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[12])
+            {
+                playerCardsValue += 10;
+            }
+
+            //Clubs
+            if (imgPlayerCardOne.Image == cards[13])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardOne.Image == cards[14])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardOne.Image == cards[15])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardOne.Image == cards[16])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardOne.Image == cards[17])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardOne.Image == cards[18])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardOne.Image == cards[19])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardOne.Image == cards[20])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardOne.Image == cards[21])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardOne.Image == cards[22])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[23])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[24])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[25])
+            {
+                playerCardsValue += 10;
+            }
+
+            //Diamonds
+            if (imgPlayerCardOne.Image == cards[26])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardOne.Image == cards[27])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardOne.Image == cards[28])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardOne.Image == cards[29])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardOne.Image == cards[30])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardOne.Image == cards[31])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardOne.Image == cards[32])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardOne.Image == cards[33])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardOne.Image == cards[34])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardOne.Image == cards[35])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[36])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[37])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[38])
+            {
+                playerCardsValue += 10;
+            }
+
+            //Hearts
+            if (imgPlayerCardOne.Image == cards[39])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardOne.Image == cards[40])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardOne.Image == cards[41])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardOne.Image == cards[42])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardOne.Image == cards[43])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardOne.Image == cards[44])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardOne.Image == cards[45])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardOne.Image == cards[46])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardOne.Image == cards[47])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardOne.Image == cards[48])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[49])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[50])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardOne.Image == cards[51])
+            {
+                playerCardsValue += 10;
+            }   
         }
     }
 }
