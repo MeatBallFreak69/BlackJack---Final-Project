@@ -64,7 +64,6 @@
             this.imgPlayerCardThree = new System.Windows.Forms.PictureBox();
             this.imgEnemyCardThree = new System.Windows.Forms.PictureBox();
             this.imgEnemyCardFour = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgDealHand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgChpPlcDwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOneChip)).BeginInit();
@@ -249,7 +248,6 @@
             this.btnDeal.TabIndex = 21;
             this.btnDeal.Text = "Deal";
             this.btnDeal.UseVisualStyleBackColor = true;
-            this.btnDeal.Visible = false;
             this.btnDeal.Click += new System.EventHandler(this.btnDeal_Click);
             // 
             // imgEnemyCardOne
@@ -345,6 +343,7 @@
             this.btnHit.TabIndex = 29;
             this.btnHit.Text = "Hit";
             this.btnHit.UseVisualStyleBackColor = true;
+            this.btnHit.Click += new System.EventHandler(this.btnHit_Click);
             // 
             // btnStand
             // 
@@ -394,16 +393,6 @@
             this.imgEnemyCardFour.TabStop = false;
             this.imgEnemyCardFour.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(78, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,7 +400,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 470);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.imgEnemyCardFour);
             this.Controls.Add(this.imgEnemyCardThree);
             this.Controls.Add(this.imgPlayerCardThree);
@@ -499,7 +487,6 @@
         private System.Windows.Forms.PictureBox imgPlayerCardThree;
         private System.Windows.Forms.PictureBox imgEnemyCardThree;
         private System.Windows.Forms.PictureBox imgEnemyCardFour;
-        private System.Windows.Forms.Button button1;
     }
 }
 

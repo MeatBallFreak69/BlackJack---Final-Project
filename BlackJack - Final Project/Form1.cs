@@ -14,7 +14,6 @@ namespace BlackJack___Final_Project
     {
         double money;
         public static int betAmount = 0;
-        int turnCounter = 0;
         int playerCardsValue = 0;
         int enemyCardsValue = 0;
 
@@ -132,7 +131,7 @@ namespace BlackJack___Final_Project
         {
             betAmount = 0;
             lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
-            btnDeal.Visible = false;
+            btnDeal.Enabled = false;
         }
 
         private void btnDeal_Click(object sender, EventArgs e)
@@ -144,9 +143,6 @@ namespace BlackJack___Final_Project
             imgFiftyChip.Enabled = false;
             imgHundredChip.Enabled = false;
 
-            turnCounter++;
-            if (turnCounter == 1)
-            {
                 //Shuffles Cards
                 shuffledCards = shuffledCards.OrderBy(a => Guid.NewGuid()).ToList();
 
@@ -182,18 +178,59 @@ namespace BlackJack___Final_Project
                 checkPlayerCardOne();
                 checkPlayerSecondCard();
                 checkSecondEnemyCard();
-                lblPlayerCardsValue.Text = Convert.ToString(playerCardsValue);
-                lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+                lblPlayerCardsValue.Text = Convert.ToString("Player Card Value: " + playerCardsValue);
+                lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
                 btnStand.Enabled = true;
+                btnHit.Enabled = true;
+
+            if (playerCardsValue == 21)
+            {
+                MessageBox.Show("Blackjack! Payout 1:1");
+
+                resetGame();
+
+                money += betAmount * 2;
             }
+            
         }
+
+        private void btnHit_Click(object sender, EventArgs e)
+        {
+                publicCards.Add(imgPlayerCardThree);
+                deltHands.Add(shuffledCards[0]);
+                shuffledCards.Remove(shuffledCards[0]);
+                imgPlayerCardThree.Visible = true;
+                imgPlayerCardThree.Image = deltHands[deltHands.Count - 1];
+
+                checkPlayerCardThree();
+                lblPlayerCardsValue.Text = Convert.ToString(playerCardsValue);
+
+            if (playerCardsValue > 21)
+            {
+                playerBust();
+            }
+
+            if (playerCardsValue == 21)
+            {
+                MessageBox.Show("Player win! Payout 2:3", "You win!");
+
+                resetGame();
+
+                money += betAmount * 1.5;
+            }
+
+
+        }
+
         private void btnStand_Click(object sender, EventArgs e)
         {
+            btnHit.Enabled = false;
+            btnStand.Enabled = false;
             publicCards.Add(imgEnemyCardOne);
             deltHands.Add(shuffledCards[0]);
             shuffledCards.Remove(shuffledCards[0]);
 
-            imgEnemyCardOne.Image = deltHands[3];
+            imgEnemyCardOne.Image = deltHands[deltHands.Count - 1];
 
             checkFirstEnemyCard();
             lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
@@ -204,24 +241,35 @@ namespace BlackJack___Final_Project
                 deltHands.Add(shuffledCards[0]);
                 shuffledCards.Remove(shuffledCards[0]);
                 imgEnemyCardThree.Visible = true;
-                imgEnemyCardThree.Image = deltHands[4];
+                imgEnemyCardThree.Image = deltHands[deltHands.Count - 1];
 
                 checkThirdEnemyCard();
                 lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
-                if (enemyCardsValue < 17)
-                {
-                    publicCards.Add(imgEnemyCardFour);
-                    deltHands.Add(shuffledCards[0]);
-                    shuffledCards.Remove(shuffledCards[0]);
-                    imgEnemyCardFour.Visible = true;
-                    imgEnemyCardThree.Image = deltHands[5];
+            }
+            if (enemyCardsValue < 17)
+            {
+                publicCards.Add(imgEnemyCardFour);
+                deltHands.Add(shuffledCards[0]);
+                shuffledCards.Remove(shuffledCards[0]);
+                imgEnemyCardFour.Visible = true;
+                imgEnemyCardThree.Image = deltHands[deltHands.Count - 1];
 
-                    checkFourthEnemyCard();
-                    lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
-                }
+                checkFourthEnemyCard();
+                lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+            }
+            if (enemyCardsValue > 21)
+            {
+                enemyBust();
             }
 
-            
+            if (enemyCardsValue < 22 && enemyCardsValue > playerCardsValue)
+            {
+                enemyNonBustWin();
+            }
+            else if (playerCardsValue < 22 && playerCardsValue > enemyCardsValue)
+            {
+                playerNonBustWin();
+            }
         }
 
         public void ShuffleDeck()
@@ -262,33 +310,85 @@ namespace BlackJack___Final_Project
             //Reveals deal button
             if (betAmount > 0)
             {
-                btnDeal.Visible = true;
+                btnDeal.Enabled = true;
             }
+        }
+
+        public void resetGame()
+        {
+            enemyCardsValue = 0;
+            playerCardsValue = 0;
+
+
+            foreach (PictureBox Image in publicCards)
+            {
+                Image.Image = Properties.Resources.red_back;
+            }
+
+            publicCards.Clear();
+            shuffledCards.Clear();
+            deltHands.Clear();
+
+            imgPlayerCardThree.Visible = false;
+            imgEnemyCardThree.Visible = false;
+            imgEnemyCardFour.Visible = false;
+
+            ShuffleDeck();
+
+            btnHit.Enabled = false;
+            btnStand.Enabled = false;
+
+            imgOneChip.Enabled = true;
+            imgFiveChip.Enabled = true;
+            imgTenChip.Enabled = true;
+            imgTwentyChip.Enabled = true;
+            imgFiftyChip.Enabled = true;
+            imgHundredChip.Enabled = true;
+
+            lblBank.Text = "$" + Convert.ToString(money);
+            lblPlayerCardsValue.Text = Convert.ToString("Player Card Value: " + playerCardsValue);
+            lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
+            betAmount = 0;
+            lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+        }
+
+        public void playerBust()
+        {
+            MessageBox.Show("Dealer won, player bust!", "You lose!");
+
+            money -= betAmount;
+
+            resetGame();
         }
 
         public void enemyBust()
         {
-            MessageBox.Show("Player win, dealer bust!", "You win!");
-
-            enemyCardsValue = 0;
-            playerCardsValue = 0;
-
-            for (int i = 0; i < publicCards.Count; i++)
-            {
-                publicCards.Remove(publicCards[i]);
-            }
-            imgEnemyCardFour.Image = Properties.Resources.red_back;
-            imgEnemyCardThree.Image = Properties.Resources.red_back;
-            imgEnemyCardTwo.Image = Properties.Resources.red_back;
-            imgEnemyCardOne.Image = Properties.Resources.red_back;
-            shuffledCards.Clear();
-            deltHands.Clear();
-
-            ShuffleDeck();
+            MessageBox.Show("Player win, dealer bust! Payout 2:3", "You win!");
 
             money += betAmount * 1.5;
-            lblBank.Text = "$" + Convert.ToString(money);
-            betAmount = 0;
+            
+
+            resetGame();
+        }
+
+        public void playerNonBustWin()
+        {
+            MessageBox.Show("Player win! Payout 2:3", "You win!");
+
+            money += betAmount * 1.5;
+
+
+            resetGame();
+        }
+
+        public void enemyNonBustWin()
+        {
+            MessageBox.Show("Dealer win!", "You lose!");
+
+            money -= betAmount;
+
+
+            resetGame();
         }
 
         public void checkFourthEnemyCard()
@@ -1778,9 +1878,253 @@ namespace BlackJack___Final_Project
             }   
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void checkPlayerCardThree()
         {
-            enemyBust();
+            //Spades
+            if (imgPlayerCardThree.Image == cards[0])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardThree.Image == cards[1])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardThree.Image == cards[2])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardThree.Image == cards[3])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardThree.Image == cards[4])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardThree.Image == cards[5])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardThree.Image == cards[6])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardThree.Image == cards[7])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardThree.Image == cards[8])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardThree.Image == cards[9])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[10])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[11])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[12])
+            {
+                playerCardsValue += 10;
+            }
+
+            //Clubs
+            if (imgPlayerCardThree.Image == cards[13])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardThree.Image == cards[14])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardThree.Image == cards[15])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardThree.Image == cards[16])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardThree.Image == cards[17])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardThree.Image == cards[18])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardThree.Image == cards[19])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardThree.Image == cards[20])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardThree.Image == cards[21])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardThree.Image == cards[22])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[23])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[24])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[25])
+            {
+                playerCardsValue += 10;
+            }
+
+            //Diamonds
+            if (imgPlayerCardThree.Image == cards[26])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardThree.Image == cards[27])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardThree.Image == cards[28])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardThree.Image == cards[29])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardThree.Image == cards[30])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardThree.Image == cards[31])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardThree.Image == cards[32])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardThree.Image == cards[33])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardThree.Image == cards[34])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardThree.Image == cards[35])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[36])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[37])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[38])
+            {
+                playerCardsValue += 10;
+            }
+
+            //Hearts
+            if (imgPlayerCardThree.Image == cards[39])
+            {
+                if (playerCardsValue <= 10)
+                {
+                    playerCardsValue += 10;
+                }
+                else
+                {
+                    playerCardsValue += 1;
+                }
+            }
+            else if (imgPlayerCardThree.Image == cards[40])
+            {
+                playerCardsValue += 2;
+            }
+            else if (imgPlayerCardThree.Image == cards[41])
+            {
+                playerCardsValue += 3;
+            }
+            else if (imgPlayerCardThree.Image == cards[42])
+            {
+                playerCardsValue += 4;
+            }
+            else if (imgPlayerCardThree.Image == cards[43])
+            {
+                playerCardsValue += 5;
+            }
+            else if (imgPlayerCardThree.Image == cards[44])
+            {
+                playerCardsValue += 6;
+            }
+            else if (imgPlayerCardThree.Image == cards[45])
+            {
+                playerCardsValue += 7;
+            }
+            else if (imgPlayerCardThree.Image == cards[46])
+            {
+                playerCardsValue += 8;
+            }
+            else if (imgPlayerCardThree.Image == cards[47])
+            {
+                playerCardsValue += 9;
+            }
+            else if (imgPlayerCardThree.Image == cards[48])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[49])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[50])
+            {
+                playerCardsValue += 10;
+            }
+            else if (imgPlayerCardThree.Image == cards[51])
+            {
+                playerCardsValue += 10;
+            }
         }
+
+
     }
 }
