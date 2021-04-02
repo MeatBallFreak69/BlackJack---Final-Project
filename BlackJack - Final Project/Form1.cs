@@ -45,8 +45,6 @@ namespace BlackJack___Final_Project
         SoundPlayer chips12;
         SoundPlayer chips13;
         SoundPlayer chips14;
-        SoundPlayer chips15;
-        SoundPlayer chips16;
 
         public frmMainGame()
         {
@@ -55,6 +53,8 @@ namespace BlackJack___Final_Project
 
         private void frmMainGame_Load(object sender, EventArgs e)
         {
+            
+
             CreateDeck();
             ShuffleDeck();
 
@@ -375,6 +375,14 @@ namespace BlackJack___Final_Project
 
         public void resetGame()
         {
+            imgPlayerCardOne.Location = new Point(688, 12);
+            imgPlayerCardTwo.Location = new Point(688, 12);
+            imgPlayerCardThree.Location = new Point(688, 12);
+            imgEnemyCardOne.Location = new Point(688, 12);
+            imgEnemyCardTwo.Location = new Point(688, 12);
+            imgEnemyCardThree.Location = new Point(688, 12);
+            imgEnemyCardFour.Location = new Point(688, 12);
+            tmrAddCards.Stop();
             enemyCardsValue = 0;
             playerCardsValue = 0;
 
@@ -453,26 +461,41 @@ namespace BlackJack___Final_Project
         private void tmrAddCards_Tick(object sender, EventArgs e)
         {
             cardTick++;
-            addCardsPreset(imgEnemyCardOne, 259, 12);
+            addCardsPreset(imgEnemyCardOne, 256, 12);
 
             if (publicCards.Count == 3)
             {
-                addCardsPreset(imgPlayerCardOne, 259, 268);
+                addCardsPreset(imgPlayerCardOne, 256, 268 );
                 addCardsPreset(imgPlayerCardTwo, 342, 268);
 
                 addCardsPreset(imgEnemyCardTwo, 342, 12);
+            }
+            if (publicCards[publicCards.Count - 1] == imgPlayerCardThree)
+            {
+                addCardsPreset(imgPlayerCardThree, 426, 268);
+            }
+            if (publicCards[publicCards.Count - 1] == imgEnemyCardOne)
+            {
+                addCardsPreset(imgPlayerCardOne, 260, 12);
+            }
+            if (publicCards[publicCards.Count - 1] == imgEnemyCardThree)
+            {
+                addCardsPreset(imgEnemyCardThree, 426, 12);
             }
         }
 
         public void addCardsPreset(PictureBox cardType, int X, int Y)
         {
-            if (cardType.Location.Y != Y)
-            {
-                cardType.Top += 1;   
-            }
             if (cardType.Location.X != X)
             {
-                cardType.Left -= 1;
+                cardType.Left -= 2;   
+            }
+            else
+            {
+                if (cardType.Location.Y != Y)
+                {
+                    cardType.Top += 2;
+                }
             }
         }
 

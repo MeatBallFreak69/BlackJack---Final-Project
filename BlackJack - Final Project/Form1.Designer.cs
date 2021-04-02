@@ -128,6 +128,7 @@
             // 
             // tmrAddCards
             // 
+            this.tmrAddCards.Interval = 1;
             this.tmrAddCards.Tick += new System.EventHandler(this.tmrAddCards_Tick);
             // 
             // imgChpPlcDwn
