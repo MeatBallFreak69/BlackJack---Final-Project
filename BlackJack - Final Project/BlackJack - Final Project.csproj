@@ -140,5 +140,53 @@
   <ItemGroup>
     <None Include="Resources\sideChip_yellow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips15.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips16.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips7.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips8.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips9.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips10.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips11.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips12.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips13.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chips14.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

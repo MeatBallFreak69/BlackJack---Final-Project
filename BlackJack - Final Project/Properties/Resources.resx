@@ -145,6 +145,48 @@
   <data name="Blackjack-values" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blackjack-values.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Chips1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips10.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips11.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips12.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips13.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips14.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips5.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips6.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips7.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips8.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chips9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chips9.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="HandGuide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandGuide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

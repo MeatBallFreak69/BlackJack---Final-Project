@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace BlackJack___Final_Project
 {
@@ -16,16 +17,36 @@ namespace BlackJack___Final_Project
         public static int betAmount = 0;
         int playerCardsValue = 0;
         int enemyCardsValue = 0;
+        int cardTick = 0;
 
-
+        SoundPlayer randomSound;
+        
         Bitmap deck = Properties.Resources.betterCards;
 
-        public static List<Bitmap> cards = new List<Bitmap>();
-        public static List<Bitmap> shuffledCards = new List<Bitmap>();
+        List<Bitmap> cards = new List<Bitmap>();
+        List<Bitmap> shuffledCards = new List<Bitmap>();
+        List<SoundPlayer> chipSounds = new List<SoundPlayer>();
         List<Bitmap> deltHands = new List<Bitmap>();
         List<PictureBox> publicCards = new List<PictureBox>();
 
+        Random ranChip = new Random();
 
+        SoundPlayer chips1;
+        SoundPlayer chips2;
+        SoundPlayer chips3;
+        SoundPlayer chips4;
+        SoundPlayer chips5;
+        SoundPlayer chips6;
+        SoundPlayer chips7;
+        SoundPlayer chips8;
+        SoundPlayer chips9;
+        SoundPlayer chips10;
+        SoundPlayer chips11;
+        SoundPlayer chips12;
+        SoundPlayer chips13;
+        SoundPlayer chips14;
+        SoundPlayer chips15;
+        SoundPlayer chips16;
 
         public frmMainGame()
         {
@@ -36,6 +57,36 @@ namespace BlackJack___Final_Project
         {
             CreateDeck();
             ShuffleDeck();
+
+            chips1 = new SoundPlayer(Properties.Resources.Chips1);
+            chips2 = new SoundPlayer(Properties.Resources.Chips2);
+            chips3 = new SoundPlayer(Properties.Resources.Chips3);
+            chips4 = new SoundPlayer(Properties.Resources.Chips4);
+            chips5 = new SoundPlayer(Properties.Resources.Chips5);
+            chips6 = new SoundPlayer(Properties.Resources.Chips6);
+            chips7 = new SoundPlayer(Properties.Resources.Chips7);
+            chips8 = new SoundPlayer(Properties.Resources.Chips8);
+            chips9 = new SoundPlayer(Properties.Resources.Chips9);
+            chips10 = new SoundPlayer(Properties.Resources.Chips10);
+            chips11 = new SoundPlayer(Properties.Resources.Chips11);
+            chips12 = new SoundPlayer(Properties.Resources.Chips12);
+            chips13 = new SoundPlayer(Properties.Resources.Chips13);
+            chips14 = new SoundPlayer(Properties.Resources.Chips14);
+
+            chipSounds.Add(chips1);
+            chipSounds.Add(chips2);
+            chipSounds.Add(chips3);
+            chipSounds.Add(chips4);
+            chipSounds.Add(chips5);
+            chipSounds.Add(chips6);
+            chipSounds.Add(chips7);
+            chipSounds.Add(chips8);
+            chipSounds.Add(chips9);
+            chipSounds.Add(chips10);
+            chipSounds.Add(chips11);
+            chipSounds.Add(chips12);
+            chipSounds.Add(chips13);
+            chipSounds.Add(chips14);
 
             imgDealHand.Image = Properties.Resources.red_back;
             money = 100;
@@ -54,11 +105,6 @@ namespace BlackJack___Final_Project
         {
             //Quits form
             this.Close();
-        }
-
-        private void tmrAddCards_Tick(object sender, EventArgs e)
-        {
-
         }
 
         private void imgOneChip_MouseHover(object sender, EventArgs e)
@@ -100,31 +146,43 @@ namespace BlackJack___Final_Project
         private void imgOneChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(1);
+            randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
+            randomSound.Play();
         }
 
         private void imgFiveChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(5);
+            randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
+            randomSound.Play();
         }
 
         private void imgTenChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(10);
+            randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
+            randomSound.Play();
         }
 
         private void imgTwentyChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(20);
+            randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
+            randomSound.Play();
         }
 
         private void imgFiftyChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(50);
+            randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
+            randomSound.Play();
         }
 
         private void imgHundredChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(100);
+            randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
+            randomSound.Play();
         }
 
         private void btnResetBet_Click(object sender, EventArgs e)
@@ -136,6 +194,7 @@ namespace BlackJack___Final_Project
 
         private void btnDeal_Click(object sender, EventArgs e)
         {
+            tmrAddCards.Start();
             imgOneChip.Enabled = false;
             imgFiveChip.Enabled = false;
             imgTenChip.Enabled = false;
@@ -189,7 +248,7 @@ namespace BlackJack___Final_Project
 
                 resetGame();
 
-                money += betAmount * 2;
+                money += betAmount;
             }
             
         }
@@ -203,7 +262,7 @@ namespace BlackJack___Final_Project
                 imgPlayerCardThree.Image = deltHands[deltHands.Count - 1];
 
                 checkPlayerCardThree();
-                lblPlayerCardsValue.Text = Convert.ToString(playerCardsValue);
+                lblPlayerCardsValue.Text = Convert.ToString("Player Card Value: " + playerCardsValue);
 
             if (playerCardsValue > 21)
             {
@@ -391,7 +450,33 @@ namespace BlackJack___Final_Project
             resetGame();
         }
 
-        public void checkFourthEnemyCard()
+        private void tmrAddCards_Tick(object sender, EventArgs e)
+        {
+            cardTick++;
+            addCardsPreset(imgEnemyCardOne, 259, 12);
+
+            if (publicCards.Count == 3)
+            {
+                addCardsPreset(imgPlayerCardOne, 259, 268);
+                addCardsPreset(imgPlayerCardTwo, 342, 268);
+
+                addCardsPreset(imgEnemyCardTwo, 342, 12);
+            }
+        }
+
+        public void addCardsPreset(PictureBox cardType, int X, int Y)
+        {
+            if (cardType.Location.Y != Y)
+            {
+                cardType.Top += 1;   
+            }
+            if (cardType.Location.X != X)
+            {
+                cardType.Left -= 1;
+            }
+        }
+
+            public void checkFourthEnemyCard()
         {
             //Spades
             if (imgEnemyCardFour.Image == cards[0])

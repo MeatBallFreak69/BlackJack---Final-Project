@@ -230,7 +230,7 @@
             // 
             // btnResetBet
             // 
-            this.btnResetBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetBet.Location = new System.Drawing.Point(236, 204);
             this.btnResetBet.Name = "btnResetBet";
             this.btnResetBet.Size = new System.Drawing.Size(87, 23);
@@ -241,7 +241,7 @@
             // 
             // btnDeal
             // 
-            this.btnDeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeal.Location = new System.Drawing.Point(492, 204);
             this.btnDeal.Name = "btnDeal";
             this.btnDeal.Size = new System.Drawing.Size(87, 23);
@@ -254,7 +254,7 @@
             // 
             this.imgEnemyCardOne.BackColor = System.Drawing.Color.Black;
             this.imgEnemyCardOne.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgEnemyCardOne.Location = new System.Drawing.Point(259, 12);
+            this.imgEnemyCardOne.Location = new System.Drawing.Point(688, 12);
             this.imgEnemyCardOne.Name = "imgEnemyCardOne";
             this.imgEnemyCardOne.Size = new System.Drawing.Size(100, 155);
             this.imgEnemyCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -266,7 +266,7 @@
             // 
             this.imgEnemyCardTwo.BackColor = System.Drawing.Color.Black;
             this.imgEnemyCardTwo.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgEnemyCardTwo.Location = new System.Drawing.Point(342, 12);
+            this.imgEnemyCardTwo.Location = new System.Drawing.Point(688, 12);
             this.imgEnemyCardTwo.Name = "imgEnemyCardTwo";
             this.imgEnemyCardTwo.Size = new System.Drawing.Size(100, 155);
             this.imgEnemyCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,7 +278,7 @@
             // 
             this.imgPlayerCardTwo.BackColor = System.Drawing.Color.Black;
             this.imgPlayerCardTwo.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgPlayerCardTwo.Location = new System.Drawing.Point(342, 268);
+            this.imgPlayerCardTwo.Location = new System.Drawing.Point(688, 12);
             this.imgPlayerCardTwo.Name = "imgPlayerCardTwo";
             this.imgPlayerCardTwo.Size = new System.Drawing.Size(100, 155);
             this.imgPlayerCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -290,7 +290,7 @@
             // 
             this.imgPlayerCardOne.BackColor = System.Drawing.Color.Black;
             this.imgPlayerCardOne.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgPlayerCardOne.Location = new System.Drawing.Point(259, 268);
+            this.imgPlayerCardOne.Location = new System.Drawing.Point(688, 12);
             this.imgPlayerCardOne.Name = "imgPlayerCardOne";
             this.imgPlayerCardOne.Size = new System.Drawing.Size(100, 155);
             this.imgPlayerCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -361,7 +361,7 @@
             // 
             this.imgPlayerCardThree.BackColor = System.Drawing.Color.Black;
             this.imgPlayerCardThree.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgPlayerCardThree.Location = new System.Drawing.Point(425, 268);
+            this.imgPlayerCardThree.Location = new System.Drawing.Point(688, 12);
             this.imgPlayerCardThree.Name = "imgPlayerCardThree";
             this.imgPlayerCardThree.Size = new System.Drawing.Size(100, 155);
             this.imgPlayerCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -373,7 +373,7 @@
             // 
             this.imgEnemyCardThree.BackColor = System.Drawing.Color.Black;
             this.imgEnemyCardThree.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgEnemyCardThree.Location = new System.Drawing.Point(425, 12);
+            this.imgEnemyCardThree.Location = new System.Drawing.Point(688, 12);
             this.imgEnemyCardThree.Name = "imgEnemyCardThree";
             this.imgEnemyCardThree.Size = new System.Drawing.Size(100, 155);
             this.imgEnemyCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,7 +385,7 @@
             // 
             this.imgEnemyCardFour.BackColor = System.Drawing.Color.Black;
             this.imgEnemyCardFour.Image = global::BlackJack___Final_Project.Properties.Resources.red_back;
-            this.imgEnemyCardFour.Location = new System.Drawing.Point(504, 12);
+            this.imgEnemyCardFour.Location = new System.Drawing.Point(688, 12);
             this.imgEnemyCardFour.Name = "imgEnemyCardFour";
             this.imgEnemyCardFour.Size = new System.Drawing.Size(100, 155);
             this.imgEnemyCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
