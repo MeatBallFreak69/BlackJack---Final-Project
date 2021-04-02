@@ -277,8 +277,6 @@ namespace BlackJack___Final_Project
 
                 money += betAmount * 1.5;
             }
-
-
         }
 
         private void btnStand_Click(object sender, EventArgs e)
@@ -292,7 +290,7 @@ namespace BlackJack___Final_Project
             imgEnemyCardOne.Image = deltHands[deltHands.Count - 1];
 
             checkFirstEnemyCard();
-            lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+            lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
 
             if (enemyCardsValue < 17)
             {
@@ -303,7 +301,7 @@ namespace BlackJack___Final_Project
                 imgEnemyCardThree.Image = deltHands[deltHands.Count - 1];
 
                 checkThirdEnemyCard();
-                lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+                lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
             }
             if (enemyCardsValue < 17)
             {
@@ -314,7 +312,7 @@ namespace BlackJack___Final_Project
                 imgEnemyCardThree.Image = deltHands[deltHands.Count - 1];
 
                 checkFourthEnemyCard();
-                lblEnemyCardsValue.Text = Convert.ToString(enemyCardsValue);
+                lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
             }
             if (enemyCardsValue > 21)
             {
@@ -329,6 +327,10 @@ namespace BlackJack___Final_Project
             {
                 playerNonBustWin();
             }
+            if (playerCardsValue == enemyCardsValue)
+            {
+                resetGame();
+            }
         }
 
         public void ShuffleDeck()
@@ -338,6 +340,7 @@ namespace BlackJack___Final_Project
             {
                 shuffledCards.Add(cards[i]);
             }
+            shuffledCards = shuffledCards.OrderBy(a => Guid.NewGuid()).ToList();
         }
 
         public void CreateDeck()
@@ -461,13 +464,14 @@ namespace BlackJack___Final_Project
         private void tmrAddCards_Tick(object sender, EventArgs e)
         {
             cardTick++;
+            //btnHit.Enabled = false;
+            //btnStand.Enabled = false;
             addCardsPreset(imgEnemyCardOne, 256, 12);
 
             if (publicCards.Count == 3)
             {
                 addCardsPreset(imgPlayerCardOne, 256, 268 );
                 addCardsPreset(imgPlayerCardTwo, 342, 268);
-
                 addCardsPreset(imgEnemyCardTwo, 342, 12);
             }
             if (publicCards[publicCards.Count - 1] == imgPlayerCardThree)
@@ -488,13 +492,14 @@ namespace BlackJack___Final_Project
         {
             if (cardType.Location.X != X)
             {
-                cardType.Left -= 2;   
+                cardType.Left -= 2;
             }
             else
             {
                 if (cardType.Location.Y != Y)
                 {
                     cardType.Top += 2;
+                    
                 }
             }
         }
@@ -2232,7 +2237,5 @@ namespace BlackJack___Final_Project
                 playerCardsValue += 10;
             }
         }
-
-
     }
 }
