@@ -136,6 +136,12 @@
   <data name="5Chip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sideChip_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BadEndingSoundEffect1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BadEndingSoundEffect1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BadEndingSoundEffect2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BadEndingSoundEffect2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Basic BlackJack Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Basic BlackJack Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,6 +192,9 @@
   </data>
   <data name="Chips9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Chips9.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="End_of_the_world" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\End of the world.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HandGuide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandGuide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

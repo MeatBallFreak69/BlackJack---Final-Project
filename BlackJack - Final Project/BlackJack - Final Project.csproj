@@ -188,5 +188,14 @@
   <ItemGroup>
     <None Include="Resources\Chips14.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BadEndingSoundEffect1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BadEndingSoundEffect2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\End of the world.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

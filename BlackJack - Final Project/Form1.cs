@@ -31,6 +31,9 @@ namespace BlackJack___Final_Project
 
         Random ranChip = new Random();
 
+        SoundPlayer badEnding1;
+        SoundPlayer badEnding2;
+
         SoundPlayer chips1;
         SoundPlayer chips2;
         SoundPlayer chips3;
@@ -57,6 +60,9 @@ namespace BlackJack___Final_Project
 
             CreateDeck();
             ShuffleDeck();
+
+            badEnding1 = new SoundPlayer(Properties.Resources.BadEndingSoundEffect1);
+            badEnding2 = new SoundPlayer(Properties.Resources.BadEndingSoundEffect2);
 
             chips1 = new SoundPlayer(Properties.Resources.Chips1);
             chips2 = new SoundPlayer(Properties.Resources.Chips2);
@@ -420,6 +426,11 @@ namespace BlackJack___Final_Project
             lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
             betAmount = 0;
             lblBet.Text = $"Bet Amount: ${Convert.ToString(betAmount)}";
+
+            if (money == 0)
+            {
+                badEnding();
+            }
         }
 
         public void playerBust()
@@ -468,23 +479,26 @@ namespace BlackJack___Final_Project
             //btnStand.Enabled = false;
             addCardsPreset(imgEnemyCardOne, 256, 12);
 
-            if (publicCards.Count == 3)
+            if (publicCards.Contains(imgPlayerCardOne))
             {
                 addCardsPreset(imgPlayerCardOne, 256, 268 );
                 addCardsPreset(imgPlayerCardTwo, 342, 268);
                 addCardsPreset(imgEnemyCardTwo, 342, 12);
             }
-            if (publicCards[publicCards.Count - 1] == imgPlayerCardThree)
+
+            if (publicCards.Contains(imgPlayerCardThree))
             {
                 addCardsPreset(imgPlayerCardThree, 426, 268);
             }
-            if (publicCards[publicCards.Count - 1] == imgEnemyCardOne)
-            {
-                addCardsPreset(imgPlayerCardOne, 260, 12);
-            }
-            if (publicCards[publicCards.Count - 1] == imgEnemyCardThree)
+
+            if (publicCards.Contains(imgEnemyCardThree))
             {
                 addCardsPreset(imgEnemyCardThree, 426, 12);
+            }
+
+            if (publicCards.Contains(imgEnemyCardFour))
+            {
+                addCardsPreset(imgEnemyCardFour, 504, 12);
             }
         }
 
@@ -498,13 +512,47 @@ namespace BlackJack___Final_Project
             {
                 if (cardType.Location.Y != Y)
                 {
-                    cardType.Top += 2;
-                    
+                    cardType.Top += 2; 
                 }
             }
         }
 
-            public void checkFourthEnemyCard()
+        public void badEnding()
+        {
+            MessageBox.Show("Bankrupt! Bad ending", "Bankrupt");
+            badEnding1.Play();
+            imgChpPlcDwn.Visible = false;
+            imgDealHand.Visible = false;
+            imgEnemyCardFour.Visible = false;
+            imgEnemyCardThree.Visible = false;
+            imgEnemyCardTwo.Visible = false;
+            imgEnemyCardOne.Visible = false;
+            imgHundredChip.Visible = false;
+            imgFiftyChip.Visible = false;
+            imgTwentyChip.Visible = false;
+            imgTenChip.Visible = false;
+            imgFiveChip.Visible = false;
+            imgOneChip.Visible = false;
+            imgPlayerCardOne.Visible = false;
+            imgPlayerCardTwo.Visible = false;
+            imgPlayerCardThree.Visible = false;
+            lblBank.Visible = false;
+            lblBet.Visible = false;
+            lblEnemyCardsValue.Visible = false;
+            lblPlayerCardsValue.Visible = false;
+            btnDeal.Visible = false;
+            btnHit.Visible = false;
+            btnResetBet.Visible = false;
+            btnStand.Visible = false;
+            btnTutorials.Visible = false;
+            grpMenu.Visible = false;
+
+            this.BackgroundImage = Properties.Resources.End_of_the_world;
+            MessageBox.Show("W̶̪̔h̴̺̕y̷̰͋ ̷̻̉m̴̻̃u̶̲͑s̷̗͛ṫ̴̫ ̶̲͘y̶̟̑o̷̜͗u̷͚̓ ̴̠̌l̶̟̏o̵͓͠s̶̀ͅe̴̬̚ ̵̡͂e̵͖̚v̴̖̎e̵̗͛r̴̟̒y̸̻͠t̵̜̏h̵̲͆ỉ̶̫n̷͚͝g̶̨̐.̴̡͐.̸̘̓.̴̠̅.̷͎̎.̶̙͐.̷̢́ ̸͙͂W̸̞̓h̶̬̀ẏ̴͎ ̴̼͗m̴͙͗u̴̲͌s̵̛̩t̵͉͌ ̸͙̇y̸͊͜o̸̭͠u̸̻͗ ̵͙́l̴̘͒o̷̗͘s̶̭̈e̴̜͌ ̶͉̐é̷̻ṿ̷̎e̵̟̽ŗ̶̚y̶̩͛t̸̬́ḣ̶͉ĭ̷̪n̶̘͐ǧ̵̰", "y̷̨͖̦̙̌͆̉̿̔̕o̶̙͆͠u̷̻̠͒̒ ̴̡̥̮̜̏́l̵͎͕̄̋͒͘o̷͖̞̙̪̊́͌̄̕s̵̨̛͎̝̲͍͂͗͒͐ͅt̷̡͑̄͛̃̆ ̷͔̓́̿̃a̴͈͔̟͍̖̿l̴̳̟̽̾͊͑ͅl̵͕̬̖͑̊̀̐̎ ̷͙̮͎͉͔͕̌");
+            this.Close();
+        }
+
+        public void checkFourthEnemyCard()
         {
             //Spades
             if (imgEnemyCardFour.Image == cards[0])

@@ -121,6 +121,24 @@ namespace BlackJack___Final_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream BadEndingSoundEffect1 {
+            get {
+                return ResourceManager.GetStream("BadEndingSoundEffect1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream BadEndingSoundEffect2 {
+            get {
+                return ResourceManager.GetStream("BadEndingSoundEffect2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Basic_BlackJack_Background {
@@ -273,6 +291,16 @@ namespace BlackJack___Final_Project.Properties {
         internal static System.IO.UnmanagedMemoryStream Chips9 {
             get {
                 return ResourceManager.GetStream("Chips9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap End_of_the_world {
+            get {
+                object obj = ResourceManager.GetObject("End_of_the_world", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
