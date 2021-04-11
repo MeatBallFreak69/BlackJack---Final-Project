@@ -207,47 +207,47 @@ namespace BlackJack___Final_Project
             imgTwentyChip.Enabled = false;
             imgFiftyChip.Enabled = false;
             imgHundredChip.Enabled = false;
+            
+            //Shuffles Cards
+            shuffledCards = shuffledCards.OrderBy(a => Guid.NewGuid()).ToList();
 
-                //Shuffles Cards
-                shuffledCards = shuffledCards.OrderBy(a => Guid.NewGuid()).ToList();
+            //Adds visible cards to list
+            publicCards.Add(imgPlayerCardOne);
+            publicCards.Add(imgPlayerCardTwo);
+            publicCards.Add(imgEnemyCardTwo);
 
-                //Adds visible cards to list
-                publicCards.Add(imgPlayerCardOne);
-                publicCards.Add(imgPlayerCardTwo);
-                publicCards.Add(imgEnemyCardTwo);
+            //Removes cards from shuffled card list and adds it to cards delt
+            for (int i = 0; i < publicCards.Count; i++)
+            {
+                deltHands.Add(shuffledCards[i]);
+                shuffledCards.Remove(shuffledCards[i]);
+            }
 
-                //Removes cards from shuffled card list and adds it to cards delt
-                for (int i = 0; i < publicCards.Count; i++)
-                {
-                    deltHands.Add(shuffledCards[i]);
-                    shuffledCards.Remove(shuffledCards[i]);
-                }
+            //Updates card iamges with the cards from the list deltHands
+            imgPlayerCardOne.Image = deltHands[0];
+            imgPlayerCardTwo.Image = deltHands[1];
+            imgEnemyCardTwo.Image = deltHands[2];
 
-                //Updates card iamges with the cards from the list deltHands
-                imgPlayerCardOne.Image = deltHands[0];
-                imgPlayerCardTwo.Image = deltHands[1];
-                imgEnemyCardTwo.Image = deltHands[2];
-
-                //Disables buttons
-                btnResetBet.Enabled = false;
-                btnDeal.Enabled = false;
+            //Disables buttons
+            btnResetBet.Enabled = false;
+            btnDeal.Enabled = false;
 
 
 
-                //Makes cards 'playerCardOne', 'playerCardTwo', 'enemyCardOne', 'enemyCardTwo' visible
-                imgPlayerCardOne.Visible = true;
-                imgPlayerCardTwo.Visible = true;
-                imgEnemyCardOne.Visible = true;
-                imgEnemyCardTwo.Visible = true;      //Checks card values
+            //Makes cards 'playerCardOne', 'playerCardTwo', 'enemyCardOne', 'enemyCardTwo' visible
+            imgPlayerCardOne.Visible = true;
+            imgPlayerCardTwo.Visible = true;
+            imgEnemyCardOne.Visible = true;
+            imgEnemyCardTwo.Visible = true;      //Checks card values
 
-                checkPlayerCardOne();
-                checkPlayerSecondCard();
-                checkSecondEnemyCard();
-                lblPlayerCardsValue.Text = Convert.ToString("Player Card Value: " + playerCardsValue);
-                lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
-                btnStand.Enabled = true;
-                btnHit.Enabled = true;
-
+            checkPlayerCardOne();
+            checkPlayerSecondCard();
+            checkSecondEnemyCard();
+            lblPlayerCardsValue.Text = Convert.ToString("Player Card Value: " + playerCardsValue);
+            lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
+            btnStand.Enabled = true;
+            btnHit.Enabled = true;
+            
             if (playerCardsValue == 21)
             {
                 MessageBox.Show("Blackjack! Payout 1:1");
@@ -255,8 +255,8 @@ namespace BlackJack___Final_Project
                 resetGame();
 
                 money += betAmount;
+                money = Math.Round(money, 0); 
             }
-            
         }
 
         private void btnHit_Click(object sender, EventArgs e)
@@ -279,9 +279,7 @@ namespace BlackJack___Final_Project
             {
                 MessageBox.Show("Player win! Payout 2:3", "You win!");
 
-                resetGame();
-
-                money += betAmount * 1.5;
+                playerNonBustWin();
             }
         }
 
@@ -309,7 +307,8 @@ namespace BlackJack___Final_Project
                 checkThirdEnemyCard();
                 lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
             }
-            if (enemyCardsValue < 17)
+
+            if (enemyCardsValue < 17 && publicCards.Contains(imgEnemyCardThree))
             {
                 publicCards.Add(imgEnemyCardFour);
                 deltHands.Add(shuffledCards[0]);
@@ -320,6 +319,7 @@ namespace BlackJack___Final_Project
                 checkFourthEnemyCard();
                 lblEnemyCardsValue.Text = Convert.ToString("Computer Card Value: " + enemyCardsValue);
             }
+
             if (enemyCardsValue > 21)
             {
                 enemyBust();
@@ -329,12 +329,16 @@ namespace BlackJack___Final_Project
             {
                 enemyNonBustWin();
             }
+
             else if (playerCardsValue < 22 && playerCardsValue > enemyCardsValue)
             {
                 playerNonBustWin();
             }
-            if (playerCardsValue == enemyCardsValue)
+
+            if (playerCardsValue == enemyCardsValue && playerCardsValue > 0)
             {
+                MessageBox.Show("Player cards equal dealers, refund", "Tie");
+
                 resetGame();
             }
         }
@@ -414,6 +418,8 @@ namespace BlackJack___Final_Project
             btnHit.Enabled = false;
             btnStand.Enabled = false;
 
+            btnResetBet.Enabled = true;
+
             imgOneChip.Enabled = true;
             imgFiveChip.Enabled = true;
             imgTenChip.Enabled = true;
@@ -439,6 +445,8 @@ namespace BlackJack___Final_Project
 
             money -= betAmount;
 
+            money = Math.Round(money, 0);
+
             resetGame();
         }
 
@@ -447,7 +455,8 @@ namespace BlackJack___Final_Project
             MessageBox.Show("Player win, dealer bust! Payout 2:3", "You win!");
 
             money += betAmount * 1.5;
-            
+
+            money = Math.Round(money, 0);
 
             resetGame();
         }
@@ -458,6 +467,7 @@ namespace BlackJack___Final_Project
 
             money += betAmount * 1.5;
 
+            money = Math.Round(money, 0);
 
             resetGame();
         }
@@ -467,6 +477,8 @@ namespace BlackJack___Final_Project
             MessageBox.Show("Dealer win!", "You lose!");
 
             money -= betAmount;
+
+            money = Math.Round(money, 0);
 
 
             resetGame();
