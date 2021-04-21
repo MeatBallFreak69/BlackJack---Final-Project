@@ -56,8 +56,6 @@ namespace BlackJack___Final_Project
 
         private void frmMainGame_Load(object sender, EventArgs e)
         {
-            
-
             CreateDeck();
             ShuffleDeck();
 
@@ -112,7 +110,7 @@ namespace BlackJack___Final_Project
             //Quits form
             this.Close();
         }
-
+        #region
         private void imgOneChip_MouseHover(object sender, EventArgs e)
         {
             //Tooltip
@@ -148,7 +146,9 @@ namespace BlackJack___Final_Project
             //Tooltip
             tltHundredChip.SetToolTip(imgHundredChip, "Value: $100");
         }
+        #endregion
 
+        #region
         private void imgOneChip_MouseDown(object sender, MouseEventArgs e)
         {
             CheckBet(1);
@@ -190,6 +190,7 @@ namespace BlackJack___Final_Project
             randomSound = chipSounds[ranChip.Next(0, chipSounds.Count - 1)];
             randomSound.Play();
         }
+        #endregion
 
         private void btnResetBet_Click(object sender, EventArgs e)
         {
@@ -563,7 +564,7 @@ namespace BlackJack___Final_Project
             MessageBox.Show("W̶̪̔h̴̺̕y̷̰͋ ̷̻̉m̴̻̃u̶̲͑s̷̗͛ṫ̴̫ ̶̲͘y̶̟̑o̷̜͗u̷͚̓ ̴̠̌l̶̟̏o̵͓͠s̶̀ͅe̴̬̚ ̵̡͂e̵͖̚v̴̖̎e̵̗͛r̴̟̒y̸̻͠t̵̜̏h̵̲͆ỉ̶̫n̷͚͝g̶̨̐.̴̡͐.̸̘̓.̴̠̅.̷͎̎.̶̙͐.̷̢́ ̸͙͂W̸̞̓h̶̬̀ẏ̴͎ ̴̼͗m̴͙͗u̴̲͌s̵̛̩t̵͉͌ ̸͙̇y̸͊͜o̸̭͠u̸̻͗ ̵͙́l̴̘͒o̷̗͘s̶̭̈e̴̜͌ ̶͉̐é̷̻ṿ̷̎e̵̟̽ŗ̶̚y̶̩͛t̸̬́ḣ̶͉ĭ̷̪n̶̘͐ǧ̵̰", "y̷̨͖̦̙̌͆̉̿̔̕o̶̙͆͠u̷̻̠͒̒ ̴̡̥̮̜̏́l̵͎͕̄̋͒͘o̷͖̞̙̪̊́͌̄̕s̵̨̛͎̝̲͍͂͗͒͐ͅt̷̡͑̄͛̃̆ ̷͔̓́̿̃a̴͈͔̟͍̖̿l̴̳̟̽̾͊͑ͅl̵͕̬̖͑̊̀̐̎ ̷͙̮͎͉͔͕̌");
             this.Close();
         }
-
+        #region
         public void checkFourthEnemyCard()
         {
             //Spades
@@ -2297,5 +2298,6 @@ namespace BlackJack___Final_Project
                 playerCardsValue += 10;
             }
         }
+        #endregion
     }
 }
