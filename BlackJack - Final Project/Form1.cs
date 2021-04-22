@@ -564,6 +564,7 @@ namespace BlackJack___Final_Project
             MessageBox.Show("W̶̪̔h̴̺̕y̷̰͋ ̷̻̉m̴̻̃u̶̲͑s̷̗͛ṫ̴̫ ̶̲͘y̶̟̑o̷̜͗u̷͚̓ ̴̠̌l̶̟̏o̵͓͠s̶̀ͅe̴̬̚ ̵̡͂e̵͖̚v̴̖̎e̵̗͛r̴̟̒y̸̻͠t̵̜̏h̵̲͆ỉ̶̫n̷͚͝g̶̨̐.̴̡͐.̸̘̓.̴̠̅.̷͎̎.̶̙͐.̷̢́ ̸͙͂W̸̞̓h̶̬̀ẏ̴͎ ̴̼͗m̴͙͗u̴̲͌s̵̛̩t̵͉͌ ̸͙̇y̸͊͜o̸̭͠u̸̻͗ ̵͙́l̴̘͒o̷̗͘s̶̭̈e̴̜͌ ̶͉̐é̷̻ṿ̷̎e̵̟̽ŗ̶̚y̶̩͛t̸̬́ḣ̶͉ĭ̷̪n̶̘͐ǧ̵̰", "y̷̨͖̦̙̌͆̉̿̔̕o̶̙͆͠u̷̻̠͒̒ ̴̡̥̮̜̏́l̵͎͕̄̋͒͘o̷͖̞̙̪̊́͌̄̕s̵̨̛͎̝̲͍͂͗͒͐ͅt̷̡͑̄͛̃̆ ̷͔̓́̿̃a̴͈͔̟͍̖̿l̴̳̟̽̾͊͑ͅl̵͕̬̖͑̊̀̐̎ ̷͙̮͎͉͔͕̌");
             this.Close();
         }
+
         #region
         public void checkFourthEnemyCard()
         {
